@@ -1,4 +1,4 @@
-"use client"; // <-- Add this at the top
+"use client"; // Ensure this is a client component
 import { useState } from "react";
 import { FaRobot } from "react-icons/fa";
 import "./styles/chatbot.css"; // Import the CSS file
@@ -16,7 +16,7 @@ export default function Chatbot() {
     setUserMessage(e.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (userMessage.trim()) {
       const newChatHistory = [
         ...chatHistory,
@@ -26,14 +26,29 @@ export default function Chatbot() {
       setChatHistory(newChatHistory);
       setUserMessage("");
 
-      // Simulate bot response with a delay for animation
-      setTimeout(() => {
-        const botResponse = "I'm here to assist you!"; // Placeholder bot response
+      // Send the message to the backend (API route)
+      try {
+        const res = await fetch("/api/chatbot", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: userMessage }] }],
+          }),
+        });
+
+        const data = await res.json();
+
+        // Handle the bot response
+        const botResponse = data?.generatedContent || "I'm here to assist you!";
         setChatHistory((prevChatHistory) => [
           ...prevChatHistory,
           { sender: "bot", message: botResponse },
         ]);
-      }, 2000); // Simulate typing delay
+      } catch (error) {
+        console.error("Error sending message:", error);
+      }
     }
   };
 

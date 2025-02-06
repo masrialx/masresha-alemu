@@ -12,7 +12,6 @@ export default function Connection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Simulate sending email and showing a success or error message
     if (email && title && description) {
       setIsSuccess(true);
       setMessage('Your message has been successfully sent. We will get back to you shortly!');
@@ -24,73 +23,69 @@ export default function Connection() {
 
   useEffect(() => {
     if (message) {
-      // Set the popup message to hide after 5 seconds
       setIsMessageVisible(true);
       const timer = setTimeout(() => {
         setIsMessageVisible(false);
-
-        // Clear the input fields after the message disappears
         setEmail('');
         setTitle('');
         setDescription('');
-      }, 5000); // 5 seconds delay
+      }, 5000);
 
-      return () => clearTimeout(timer); // Clear timer when component unmounts or message changes
+      return () => clearTimeout(timer);
     }
   }, [message]);
 
   return (
     <div className="container mx-auto p-6">
-      {/* Success/Error Message - Positioned at the top with input width */}
+      {/* Success/Error Message */}
       {message && isMessageVisible && (
         <div
-          className={`max-w-md mx-auto mt-4 p-4 rounded-md text-white text-center transition-all duration-500 ease-out ${
+          className={`max-w-md mx-auto mt-4 p-4 rounded-lg text-white text-center transition-all duration-500 ease-out ${
             isSuccess ? 'bg-green-600' : 'bg-red-600'
           }`}
-          style={{ opacity: isMessageVisible ? 1 : 0 }}
         >
           {message}
         </div>
       )}
 
-      <h1 className="text-center text-3xl font-bold mb-6">Get in Touch</h1>
+      <h1 className="text-center text-3xl font-bold mb-6 text-gray-800">Get in Touch</h1>
 
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6">
-        <div>
-          <label htmlFor="email" className="block text-lg font-medium">Email</label>
+      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6 bg-white p-6 rounded-lg shadow-xl border border-gray-300">
+        <div className="flex flex-col">
+          <label htmlFor="email" className="text-lg font-semibold mb-2 text-gray-700">Email</label>
           <input
             id="email"
             type="email"
             placeholder="Your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
 
-        <div>
-          <label htmlFor="title" className="block text-lg font-medium">Title</label>
+        <div className="flex flex-col">
+          <label htmlFor="title" className="text-lg font-semibold mb-2 text-gray-700">Title</label>
           <input
             id="title"
             type="text"
             placeholder="Message Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             required
           />
         </div>
 
-        <div>
-          <label htmlFor="description" className="block text-lg font-medium">Description</label>
+        <div className="flex flex-col">
+          <label htmlFor="description" className="text-lg font-semibold mb-2 text-gray-700">Description</label>
           <textarea
             id="description"
             placeholder="Message Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-md"
+            className="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             rows="4"
             required
           />
@@ -98,7 +93,7 @@ export default function Connection() {
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition-all duration-300"
+          className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
           Send
         </button>
