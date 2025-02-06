@@ -32,3 +32,51 @@ body {
 .animate-slideRight {
   animation: slideRight 20s linear infinite;
 }
+
+/* Global Styles */
+body {
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for color change */
+}
+
+/* Light Mode */
+body {
+  background-color: #0a192f;
+  color: white;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212; /* Dark background */
+  color: white; /* Light text color */
+}
+
+/* Navbar and other elements styling for dark mode */
+body.dark nav {
+  background-color: #1e1e1e; /* Dark navbar background */
+}
+
+body.dark button {
+  color: white; /* Light button text */
+}
+
+/* Ensure text and elements are visible in dark mode */
+body.dark .text-green-400 {
+  color: #48bb78;
+}
+
+body.dark .text-yellow-400 {
+  color: #ecc94b;
+}
+
+body.dark .bg-black {
+  background-color: #1a202c; /* Dark background */
+}
+
+body.dark .bg-opacity-50 {
+  background-color: rgba(26, 32, 44, 0.5); /* Darker overlay */
+}
+
+/* Dark mode on hero section */
+body.dark #home {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken the hero section background */
+}

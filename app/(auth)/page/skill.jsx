@@ -20,10 +20,11 @@ export default function SkillList() {
     { name: "AI Chatbot", percent: 60 },
     { name: "Machine Learning", percent: 50 },
     { name: "Automation", percent: 65 },
-    { name: "React Native", percent: 70 }, // Added React Native to skills list
+    { name: "React Native", percent: 70 },
   ];
 
   const [inView, setInView] = useState(false);
+  const [showAllSkills, setShowAllSkills] = useState(false); // State to toggle skill visibility
   const sectionRef = useRef(null);
 
   // Detect when the section comes into view on scroll
@@ -39,33 +40,43 @@ export default function SkillList() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const visibleSkills = showAllSkills ? skills : skills.slice(0, 6); // Show 6 skills initially or all skills if toggled
+
   return (
     <div className="container mx-auto p-6" ref={sectionRef}>
-      <h1 className="text-center text-3xl font-bold mb-6">My Skills</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skills.map((skill, index) => (
-          <div key={index} className="w-full">
-            <h3 className="text-xl font-medium mb-2">{skill.name}</h3>
+      <h1 className="text-center text-2xl sm:text-3xl font-semibold mb-6">My Skills</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {visibleSkills.map((skill, index) => (
+          <div key={index} className="w-full bg-white shadow-md rounded-lg p-4 transform transition-transform hover:scale-105">
+            <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
             <div className="relative pt-1">
-              <div className="flex mb-2 items-center justify-between">
-                <span className="text-sm">
-                  {inView ? skill.percent : 0}%
-                </span>
+              <div className="flex mb-2 items-center justify-between text-sm text-gray-600">
+                <span>{inView ? skill.percent : 0}%</span>
               </div>
-              <div className="flex mb-4">
-                <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div className="flex mb-2">
+                <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
                   <div
                     style={{
                       width: inView ? `${skill.percent}%` : "0%",
-                      transition: "width 3s ease-in-out", // Slower transition here
+                      transition: "width 1s ease-in-out", // Faster transition here
                     }}
-                    className="h-2.5 rounded-full bg-blue-600"
+                    className="h-1.5 rounded-full bg-blue-600"
                   ></div>
                 </div>
               </div>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Toggle button for "See More" / "See Less" */}
+      <div className="text-center mt-6">
+        <button
+          onClick={() => setShowAllSkills(!showAllSkills)}
+          className="text-blue-600 hover:underline focus:outline-none"
+        >
+          {showAllSkills ? "See Less" : "See More"}
+        </button>
       </div>
     </div>
   );

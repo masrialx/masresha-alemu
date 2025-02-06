@@ -1,7 +1,6 @@
 "use client"; // Ensure this is a client component
 import { useState } from "react";
 import { FaRobot } from "react-icons/fa";
-import "./styles/chatbot.css"; // Import the CSS file
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,14 +33,14 @@ export default function Chatbot() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: userMessage }] }],
+            message: userMessage,
           }),
         });
 
         const data = await res.json();
 
         // Handle the bot response
-        const botResponse = data?.generatedContent || "I'm here to assist you!";
+        const botResponse = data?.message || "I am here to assist you with matters related to Masresha.";
         setChatHistory((prevChatHistory) => [
           ...prevChatHistory,
           { sender: "bot", message: botResponse },
@@ -63,48 +62,48 @@ export default function Chatbot() {
       {/* Chatbot Icon */}
       <div
         onClick={handleChatToggle}
-        className="fixed bottom-4 right-4 bg-blue-600 text-white p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-700 transition-all duration-300"
+        className="fixed right-4 bg-blue-600 text-white p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-700 transition-all duration-300"
+        style={{
+          bottom: isOpen ? '400px' : '1rem', // Ensure the bottom spacing remains even when closed
+          zIndex: 1000, // Ensure the icon is always on top of other elements
+        }}
       >
         <FaRobot size={28} />
       </div>
 
       {/* Chatbox */}
       {isOpen && (
-        <div className="fixed bottom-16 right-4 w-96 h-80 bg-white border border-gray-300 rounded-lg shadow-lg">
-          <div className="p-4 flex flex-col h-full">
-            <div className="flex-1 overflow-y-auto mb-4 text-sm">
-              {/* Chat History */}
-              <div className="space-y-2">
-                {chatHistory.map((chat, index) => (
+        <div className="fixed bottom-0 right-0 w-full max-w-xs bg-white border-2 border-blue-500 rounded-lg shadow-xl shadow-blue-500/50 z-50">
+          <div className="flex flex-col h-[400px]">
+            {/* Scrollable message history with fixed height */}
+            <div
+              className="flex-1 overflow-y-scroll p-2 space-y-2 text-sm"
+            >
+              {chatHistory.map((chat, index) => (
+                <div
+                  key={index}
+                  className={`flex ${chat.sender === "user" ? "justify-end" : "justify-start"}`}
+                >
                   <div
-                    key={index}
-                    className={`flex ${chat.sender === "user" ? "justify-end" : "justify-start"}`}
+                    className={`p-3 max-w-xs rounded-lg break-words ${
+                      chat.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
+                    }`}
                   >
-                    <div
-                      className={`p-3 max-w-xs rounded-lg ${
-                        chat.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
-                      }`}
-                    >
-                      <div
-                        className={`chat-message ${chat.sender === "bot" ? "typing-effect" : ""}`}
-                      >
-                        {chat.message}
-                      </div>
-                    </div>
+                    {chat.message}
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
 
             {/* Message Input */}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 p-2">
               <input
                 type="text"
                 value={userMessage}
                 onChange={handleUserMessageChange}
-                onKeyDown={handleKeyPress}  // Listen for Enter key press
+                onKeyDown={handleKeyPress}
                 placeholder="Type your message..."
-                className="w-full p-2 text-sm border border-gray-300 rounded-lg"
+                className="w-full p-2 text-sm border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
               />
               <button
                 onClick={handleSendMessage}

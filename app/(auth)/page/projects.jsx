@@ -53,17 +53,17 @@ function Projects() {
                           <div className="flex gap-x-4 mt-3 flex-wrap justify-center">
                             {/* View Live Button */}
                             <div className="border border-gradient-to-r from-green-400 to-teal-500 hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-gray-500 hover:text-white mb-2 transition-all duration-300 hover:bg-gradient-to-r hover:from-green-400 hover:to-teal-500 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                              <a href={projItem.btns.live} className="hover:underline">View Live</a>
+                              <a href={projItem.btns.live} className="hover:underline text-center">View Live</a>
                             </div>
 
                             {/* Source Code Button */}
                             <div className="border border-gradient-to-r from-yellow-400 to-orange-600 hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-gray-500 hover:text-white mb-2 transition-all duration-300 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-orange-600 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                              <a href={projItem.btns.sourceCode} className="hover:underline">Source Code</a>
+                              <a href={projItem.btns.sourceCode} className="hover:underline text-center">Source Code</a>
                             </div>
 
                             {/* Additional Link */}
                             <div className="border border-gradient-to-r from-pink-500 to-purple-700 hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-gray-500 hover:text-white mb-2 transition-all duration-300 hover:bg-gradient-to-r hover:from-pink-500 hover:to-purple-700 shadow-lg hover:shadow-2xl transform hover:scale-105">
-                              <a href={projItem.btns.something} className="hover:underline">Something</a>
+                              <a href={projItem.btns.something} className="hover:underline text-center">Something</a>
                             </div>
                           </div>
                         </div>

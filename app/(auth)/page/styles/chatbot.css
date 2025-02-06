@@ -1,18 +1,47 @@
-/* styles/chatbot.css */
+/* For text animation (typing effect) */
+.chat-message.typing-effect {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 2s steps(30) 1s forwards, blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Ensure chat history does not cut off and allows scrolling */
+.fixed.bottom-16.right-4 {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  max-height: 80vh; /* Make sure it doesn't overflow the screen */
+  width: 350px; /* Adjust as needed */
+}
+
+.flex-1 {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px; /* Ensure scrollbar appears on the right */
+}
+
+.space-y-2 {
+  margin-bottom: 10px;
+}
 
 .chat-message {
-    display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: typing 2s steps(40) 1s forwards; /* Slower typing animation */
-  }
-  
-  @keyframes typing {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 100%;
-    }
-  }
-  
+  word-wrap: break-word; /* Ensures long messages break and are readable */
+  white-space: pre-wrap; /* Keeps spaces and line breaks */
+  max-width: 100%;
+}

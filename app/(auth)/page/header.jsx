@@ -1,12 +1,35 @@
 "use client"; // Ensures this is a client component
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Link from "next/link";
+import { FaMoon, FaSun } from "react-icons/fa"; // Import night and bright icons
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Check for dark mode preference on page load
+  useEffect(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "true") {
+      setDarkMode(true);
+      document.body.classList.add("dark");
+    }
+  }, []);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    if (!darkMode) {
+      document.body.classList.add("dark");
+      localStorage.setItem("darkMode", "true");
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.setItem("darkMode", "false");
+    }
+  };
 
   return (
     <div className="bg-[#0a192f] text-white min-h-screen">
@@ -34,6 +57,11 @@ export default function Header() {
             </Link>
           </li>
         </ul>
+        
+        {/* Dark Mode Toggle Button */}
+        <button onClick={toggleDarkMode} className="text-2xl">
+          {darkMode ? <FaSun /> : <FaMoon />} {/* Change icon based on dark mode */}
+        </button>
       </nav>
 
       {/* Hero Section */}

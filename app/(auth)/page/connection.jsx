@@ -1,4 +1,4 @@
-"use client"; // <-- Add this at the top
+"use client"; // <-- Keep this at the top
 import { useState, useEffect } from 'react';
 
 export default function Connection() {
@@ -12,12 +12,43 @@ export default function Connection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if the fields are not empty
     if (email && title && description) {
-      setIsSuccess(true);
-      setMessage('Your message has been successfully sent. We will get back to you shortly!');
+      // Make the POST request to the API
+      try {
+        const response = await fetch('/api/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            title,
+            description,
+          }),
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          // If the email is sent successfully
+          setIsSuccess(true);
+          setMessage('Your message has been successfully sent. We will get back to you shortly!');
+        } else {
+          // If there's an error sending the email
+          setIsSuccess(false);
+          setMessage(result.message || 'There was an issue with sending your message. Please try again later.');
+        }
+      } catch (error) {
+        // Handle fetch or network error
+        setIsSuccess(false);
+        setMessage('An error occurred. Please try again later.');
+        console.error('Error:', error);
+      }
     } else {
+      // If any field is empty
       setIsSuccess(false);
-      setMessage('There was an issue with sending your message. Please check your inputs and try again.');
+      setMessage('All fields are required. Please fill them in and try again.');
     }
   };
 
