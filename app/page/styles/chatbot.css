@@ -1,0 +1,18 @@
+/* styles/chatbot.css */
+
+.chat-message {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 2s steps(40) 1s forwards; /* Slower typing animation */
+  }
+  
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
