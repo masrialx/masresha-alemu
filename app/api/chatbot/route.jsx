@@ -28,7 +28,6 @@ const aboutMasresha = {
     "internshipAndRemoteWork": `I applied for this internship to gain hands-on experience, refine my technical skills, and contribute to innovative projects. I look forward to collaborating with experienced developers and advancing my career. I have extensive remote work experience, having worked on freelancing projects, internships, and hackathons. My work includes developing websites, contributing to backend systems, optimizing email marketing strategies, and collaborating on real-time software applications with global teams.`
 
  ,"contact": {
-    "portfolio": "https://masri.vercel.app/",
     "GitHub": ["https://github.com/masrialemu", "https://github.com/masrialx"],
     "LeetCode": "https://leetcode.com/u/masrialemu/",
     "CodeForces": "https://codeforces.com/profile/masrialemu",

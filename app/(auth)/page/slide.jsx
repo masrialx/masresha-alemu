@@ -4,9 +4,10 @@ import Image from "next/image";
 
 export default function Slide() {
   return (
-    <div className="flex justify-center"> {/* Background with increased opacity */}
-      <div className="overflow-hidden w-[50%] flex justify-center   bg-[rgb(151,150,148)] bg-opacity-10"> {/* This centers the content */}
-        <div className="flex animate-slideRight w-full gap-4"> {/* Flex container for images */}
+    <div className="flex justify-center">
+      <div className="overflow-hidden w-[50%] flex justify-center bg-[rgb(151,150,148)] bg-opacity-10">
+        {/* Flex container for images */}
+        <div className="flex animate-slideRight w-full gap-4">
           <div className="flex-none w-20 h-20 relative opacity-40">
             <Image src="/file.svg" alt="file" layout="fill" objectFit="cover" />
           </div>
@@ -48,6 +49,23 @@ export default function Slide() {
           </div>
         </div>
       </div>
+
+      {/* Add this CSS for sliding animation */}
+      <style jsx>{`
+        .animate-slideRight {
+          display: flex;
+          animation: slideRight 15s linear infinite;
+        }
+
+        @keyframes slideRight {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      `}</style>
     </div>
   );
 }

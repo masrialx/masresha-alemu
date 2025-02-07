@@ -7,10 +7,9 @@ import Contact from './(auth)/page/contact'
 import Connection from './(auth)/page/connection'
 import Footer from './(auth)/page/footer'
 import Chatbot from './(auth)/page/chatbot'
-import Login from './(auth)/login/page'
 import Project from './(auth)/page/projects'
 import Education from './(auth)/page/education'
-import Pagination from './(auth)/page/pagination'
+import Edu from './(auth)/page/edu'
 const Pages = () => {
   return (
     <div>
@@ -22,8 +21,8 @@ const Pages = () => {
       <Skill/>
       <Chatbot/>
       <Project/>
-      <Pagination/>
       <Education/>
+      <Edu/>
       <Connection/>
       <Footer/>
       </main>

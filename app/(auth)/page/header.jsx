@@ -59,9 +59,7 @@ export default function Header() {
         </ul>
         
         {/* Dark Mode Toggle Button */}
-        <button onClick={toggleDarkMode} className="text-2xl">
-          {darkMode ? <FaSun /> : <FaMoon />} {/* Change icon based on dark mode */}
-        </button>
+    
       </nav>
 
       {/* Hero Section */}

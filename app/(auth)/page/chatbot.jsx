@@ -1,14 +1,22 @@
 "use client"; // Ensure this is a client component
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaRobot } from "react-icons/fa";
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
+  const [newMessage, setNewMessage] = useState(false); // To track new bot messages
+  const [greetingSent, setGreetingSent] = useState(false); // Track if the greeting has been sent
 
   const handleChatToggle = () => {
     setIsOpen(!isOpen);
+
+    // If the chatbot is opening and the greeting has not been sent, send the greeting
+    if (!isOpen && !greetingSent) {
+      handleBotMessage("How can I assist you with matters related to Masresha?");
+      setGreetingSent(true); // Mark the greeting as sent
+    }
   };
 
   const handleUserMessageChange = (e) => {
@@ -41,10 +49,7 @@ export default function Chatbot() {
 
         // Handle the bot response
         const botResponse = data?.message || "I am here to assist you with matters related to Masresha.";
-        setChatHistory((prevChatHistory) => [
-          ...prevChatHistory,
-          { sender: "bot", message: botResponse },
-        ]);
+        handleBotMessage(botResponse);
       } catch (error) {
         console.error("Error sending message:", error);
       }
@@ -57,9 +62,35 @@ export default function Chatbot() {
     }
   };
 
+  const handleBotMessage = (message) => {
+    setChatHistory((prevChatHistory) => [
+      ...prevChatHistory,
+      { sender: "bot", message: message },
+    ]);
+    setNewMessage(true); // Trigger notification when a bot message is added
+  };
+
+  useEffect(() => {
+    // Automatically receive a new message when the page is opened
+    if (isOpen && !greetingSent) {
+      handleBotMessage("Hello! How can I help you today?");
+      setGreetingSent(true);
+    }
+  
+    // Set new message notification immediately when the page loads
+    if (!greetingSent) {
+      setNewMessage(true); // Show notification immediately
+    }
+  
+    // Reset the notification after user interaction
+    if (isOpen) {
+      setNewMessage(false);
+    }
+  }, [isOpen, greetingSent]);
+  
   return (
     <div>
-      {/* Chatbot Icon */}
+      {/* Chatbot Icon with Red Notification */}
       <div
         onClick={handleChatToggle}
         className="fixed right-4 bg-blue-600 text-white p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-700 transition-all duration-300"
@@ -68,6 +99,9 @@ export default function Chatbot() {
           zIndex: 1000, // Ensure the icon is always on top of other elements
         }}
       >
+        {newMessage && (
+          <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-600 rounded-full" />
+        )}
         <FaRobot size={28} />
       </div>
 
