@@ -11,7 +11,7 @@ export default function Edu() {
   useEffect(() => {
     intervalRef.current = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 7000);
 
     return () => clearInterval(intervalRef.current);
   }, [currentIndex]);
@@ -55,7 +55,7 @@ export default function Edu() {
         {/* Previous Button (Hidden on Mobile) */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
+          className="absolute left-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-1000 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
         >
           &#10094; {/* Arrow icon */}
         </button>
@@ -72,7 +72,7 @@ export default function Edu() {
         {/* Next Button (Hidden on Mobile) */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
+          className="absolute right-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-1000 z-10 transform hidden lg:block"
         >
           &#10095; {/* Arrow icon */}
         </button>
