@@ -49,7 +49,7 @@ export default function AboutMe() {
   const handleTouchEnd = () => setDragging(false);
 
   return (
-    <div id="about"  key='about' className="bg-white min-h-screen flex items-center justify-center p-4 dark:bg-gray-800 dark:text-white">
+    <div id="about" key="about" className="bg-white min-h-screen flex items-center justify-center p-4 dark:bg-gray-800 dark:text-white">
       <Head>
         <title>About Me</title>
       </Head>
@@ -69,27 +69,29 @@ export default function AboutMe() {
 
           {/* About Text Section */}
           <div className="w-full sm:w-[70%] lg:w-[50%] text-left px-4 sm:px-8 text-justify">
-  <p className="text-lg mb-4">
-    Results-driven software engineer with <span className="font-bold text-red-500">2+</span> years of experience in mobile app development, web app development, AI integration, and cybersecurity. Successfully completed <span className="font-bold text-red-500">50+</span> projects, including <span className="font-bold text-red-500">10+</span> large-scale applications, with <span className="font-bold text-red-500">international</span> and local experience in remote and onsite roles.
-  </p>
-  
-  <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto">
-      Let's Connect
-    </button>
-    <button
-      onClick={handleResumeClick}
-      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
-    >
-      Resume
-    </button>
-  </div>
-</div>
+            <p className="text-lg mb-4">
+              Results-driven software engineer with <span className="font-bold text-red-500">2+</span> years of experience in mobile app development, web app development, AI integration, and cybersecurity. Successfully completed <span className="font-bold text-red-500">50+</span> projects, including <span className="font-bold text-red-500">10+</span> large-scale applications, with <span className="font-bold text-red-500">international</span> and local experience in remote and onsite roles.
+            </p>
 
-          
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+              {/* Connect Button */}
+              <a
+                href="#contact"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
+              >
+                Connect
+              </a>
+
+              {/* Resume Button */}
+              <button
+                onClick={handleResumeClick}
+                className="bg-[#0a192f] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto border-2 border-white"
+              >
+                Resume
+              </button>
+            </div>
+          </div>
         </div>
-
-        
       </main>
 
       {/* Modal for PDF Screenshot Preview */}
@@ -114,7 +116,10 @@ export default function AboutMe() {
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
-              style={{ cursor: dragging ? "grabbing" : "grab" }}
+              style={{
+                cursor: dragging ? "grabbing" : "grab",
+                transition: "transform 0.2s ease-in-out", // Smooth transition when zooming and dragging
+              }}
             >
               <img
                 src="/Masresha_Alemu_Resume_img.jpg"
@@ -122,7 +127,6 @@ export default function AboutMe() {
                 className="shadow-lg object-contain w-full h-full max-w-full max-h-full"
                 style={{
                   transform: `scale(${zoomLevel}) translate(${position.x}px, ${position.y}px)`,
-                  transition: dragging ? "none" : "transform 0.2s ease-in-out",
                 }}
               />
             </div>
