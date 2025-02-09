@@ -1,38 +1,34 @@
 "use client";
 
-import React, { useState } from 'react';
-import { FaGithub } from 'react-icons/fa'; 
-import Pagination from './pagination'; 
-import projectsData from './ProjectData'; 
+import React, { useState } from "react";
+import { FaGithub } from "react-icons/fa";
+import Pagination from "./pagination";
+import projectsData from "./ProjectData";
 
 function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 4;
 
-  // Calculate the index of the first and last project on the current page
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
 
-  // Flatten the list of projects
-  const flattenedProjects = projectsData.flatMap(item => item.projects);
+  const flattenedProjects = projectsData.flatMap((item) => item.projects);
 
-  // Get the current projects to display based on the pagination
   const currentProjects = flattenedProjects.slice(indexOfFirstProject, indexOfLastProject);
 
-  // Handle page change
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
 
   return (
-    <div  className="w-full flex justify-center py-10 bg-white">
+    <div className="w-full flex justify-center py-10 bg-white">
       <div className="w-full lg:w-[70%] px-6">
         {/* Title Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 leading-tight mb-4">
+          <h2 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
             Notable Projects & Contributions
           </h2>
-          <p   id="projects"  key='projects' className="text-xl text-gray-600">
+          <p id="projects" key="projects" className="text-lg text-gray-600">
             Explore the impactful projects I've contributed to and developed.
           </p>
         </div>
@@ -46,7 +42,13 @@ function Projects() {
             </div>
 
             {/* Project Card */}
-            <div className={`md:flex justify-center items-center space-x-4 rounded-lg shadow-lg overflow-hidden mb-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${index % 2 === 0 ? 'bg-gradient-to-r from-teal-500 to-lime-400' : 'bg-gradient-to-r from-pink-400 to-yellow-400'}`}>
+            <div
+              className={`md:flex justify-center items-center space-x-4 rounded-lg shadow-lg overflow-hidden mb-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
+                index % 2 === 0
+                  ? "bg-gradient-to-r from-teal-500 to-lime-400"
+                  : "bg-gradient-to-r from-pink-400 to-yellow-400"
+              }`}
+            >
               {/* Project Image */}
               <div className="w-full md:w-[45%] lg:w-[30%] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <img
@@ -68,7 +70,10 @@ function Projects() {
 
                 {/* Time, Location, and Type */}
                 <div className="text-sm text-gray-600 mb-4 text-center">
-                  <p><strong>Time:</strong> {projItem.time} | <strong>Location:</strong> {projItem.location} | <strong>Type:</strong> {projItem.type}</p>
+                  <p>
+                    <strong>Time:</strong> {projItem.time} | <strong>Location:</strong> {projItem.location} |{" "}
+                    <strong>Type:</strong> {projItem.type}
+                  </p>
                 </div>
 
                 {/* Action Buttons */}
@@ -76,7 +81,9 @@ function Projects() {
                   {/* View Live Button */}
                   {projItem.btns.live && (
                     <div className="bg-[#0a192f] hover:bg-white hover:text-black border border-[#0a192f] hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-white hover:text-black hover:no-underline mb-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                      <a href={projItem.btns.live} className="text-center w-full">View Live</a>
+                      <a href={projItem.btns.live} className="text-center w-full">
+                        View Live
+                      </a>
                     </div>
                   )}
 
@@ -93,7 +100,9 @@ function Projects() {
                   {/* Documentation Button */}
                   {projItem.btns.documentation && (
                     <div className="bg-[#0a192f] hover:bg-white hover:text-black border border-[#0a192f] hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-white hover:text-black hover:no-underline mb-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                      <a href={projItem.btns.documentation} className="text-center w-full">Documentation</a>
+                      <a href={projItem.btns.documentation} className="text-center w-full">
+                        Documentation
+                      </a>
                     </div>
                   )}
                 </div>

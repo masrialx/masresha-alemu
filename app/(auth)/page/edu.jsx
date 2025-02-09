@@ -41,7 +41,7 @@ export default function Edu() {
   };
 
   return (
-    <div id = "certificates" key="certificates" className="relative w-full max-w-3xl mx-auto mt-10">
+    <div id="certificates" key="certificates" className="relative w-full max-w-3xl mx-auto mt-10">
       {/* Title with updated color */}
       <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-purple-600 to-indigo-500 mb-6">
         Certifications & Training
@@ -65,7 +65,7 @@ export default function Edu() {
           <img
             src={certificates[currentIndex]}
             alt={`Certificate ${currentIndex + 1}`}
-            className="w-full h-full object-cover object-center transition-all duration-[1000ms] ease-in-out"
+            className="w-full h-full object-contain transition-all duration-[1000ms] ease-in-out"
           />
         </div>
 

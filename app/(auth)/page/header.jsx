@@ -80,7 +80,7 @@ export default function Header() {
         <button onClick={() => setOpen(!open)} className="md:hidden text-3xl text-white focus:outline-none">
           {open ? <FaTimes /> : <FaBars />}
         </button>
-        <ul className={`absolute md:static top-[5rem] left-0 w-full md:w-auto bg-[#0a192f] md:flex md:space-x-4 transition-all duration-300 ease-in-out ${open ? "block" : "hidden"} md:block md:mt-0 md:py-0 py-3`}>
+        <ul className={`absolute md:static top-[5rem] left-0 w-full md:w-auto bg-[#0a192f] md:flex md:space-x-4 transition-all duration-300 ease-in-out ${open ? "block shadow-lg border border-gray-700" : "hidden"} md:block md:mt-0 md:py-0 py-3 flex flex-col items-center md:flex-row`}>
           {menuItems.map((item) => (
             <li key={item.id} className="py-2 md:py-0 text-center md:text-left font-semibold transition duration-300">
               <button
@@ -105,8 +105,6 @@ export default function Header() {
           <button onClick={() => handleScroll("contact")} className="mt-4 bg-blue-600 px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300 font-extrabold">Let's Contact</button>
         </motion.div>
       </section>
-
-     
     </div>
   );
 }
