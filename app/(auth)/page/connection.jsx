@@ -67,7 +67,7 @@ export default function Connection() {
   }, [message]);
 
   return (
-    <div id="contact" key={4} className="container mx-auto p-6">
+    <div id="contact" className="container mx-auto p-6 max-w-full">
       {/* Success/Error Message */}
       {message && isMessageVisible && (
         <div
@@ -82,7 +82,7 @@ export default function Connection() {
       <h1 className="text-center text-3xl font-bold mb-6 text-gray-800">Get in Touch</h1>
 
       {/* Contact Form */}
-      <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-6 bg-white p-6 rounded-lg shadow-xl border border-gray-300">
+      <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-6 bg-white p-8 rounded-lg shadow-lg border border-gray-300">
         <div className="flex flex-col">
           <label htmlFor="email" className="text-lg font-semibold mb-2 text-gray-700">Email</label>
           <input

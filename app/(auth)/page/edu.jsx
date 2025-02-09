@@ -42,7 +42,7 @@ export default function Edu() {
 
   return (
     <div id="certificates" key="certificates" className="relative w-full max-w-3xl mx-auto mt-10">
-      {/* Title with updated color */}
+      {/* Title */}
       <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-purple-600 to-indigo-500 mb-6">
         Certifications & Training
       </h2>
@@ -52,7 +52,7 @@ export default function Edu() {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        {/* Previous Button */}
+        {/* Previous Button (Hidden on Mobile) */}
         <button
           onClick={prevSlide}
           className="absolute left-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
@@ -61,15 +61,15 @@ export default function Edu() {
         </button>
 
         {/* Image Container */}
-        <div className="w-full sm:w-[80%] h-72 sm:h-72 overflow-hidden rounded-lg shadow-xl border-2 border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center transition-all duration-500 ease-in-out transform">
+        <div className="w-full sm:w-[80%] h-70 sm:h-96 overflow-hidden rounded-lg shadow-xl border-2 border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center transition-all duration-500 ease-in-out transform">
           <img
             src={certificates[currentIndex]}
             alt={`Certificate ${currentIndex + 1}`}
-            className="w-full h-full object-contain transition-all duration-[1000ms] ease-in-out"
+            className="w-full h-full object-cover transition-all duration-[1000ms] ease-in-out"
           />
         </div>
 
-        {/* Next Button */}
+        {/* Next Button (Hidden on Mobile) */}
         <button
           onClick={nextSlide}
           className="absolute right-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"

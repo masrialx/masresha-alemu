@@ -74,22 +74,24 @@ export default function AboutMe() {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-              {/* Connect Button */}
-              <a
-                href="#contact"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto"
-              >
-                Connect
-              </a>
+  {/* Connect Button */}
+  <a
+    href="#contact"
+    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded w-full sm:w-auto text-lg sm:text-xl text-center"
+  >
+    Connect
+  </a>
 
-              {/* Resume Button */}
-              <button
-                onClick={handleResumeClick}
-                className="bg-[#0a192f] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full sm:w-auto border-2 border-white"
-              >
-                Resume
-              </button>
-            </div>
+  {/* Resume Button */}
+  <button
+    onClick={handleResumeClick}
+    className="bg-[#0a192f] hover:bg-blue-700 text-white font-bold py-3 px-6 rounded w-full sm:w-auto text-lg sm:text-xl border-2 border-white"
+  >
+    Resume
+  </button>
+</div>
+
+           
           </div>
         </div>
       </main>

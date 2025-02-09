@@ -1,18 +1,18 @@
 import React from 'react';
-import educationtData from "./educationData.js";
+import educationData from "./educationData.js";
 
 function Education() {
   return (
     <div className="w-full flex justify-center py-6">
-      <div className="w-[94%] lg:w-[50%] md:w-[70%] bg-gradient-to-r from-blue-50 to-blue-200 p-6 rounded-lg shadow-lg">
+      <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] bg-gradient-to-r from-blue-50 to-blue-200 p-6 rounded-lg shadow-lg">
         {/* Title */}
         <div className="text-[24px] font-semibold text-center text-gray-800 mb-6">
-          <h1 id="education" key="education" >Educational Background</h1>
+          <h1 id="education" key="education">Educational Background</h1>
         </div>
 
         {/* Education List */}
         <div>
-          {educationtData.map((item, index) => {
+          {educationData.map((item, index) => {
             return (
               <div key={index} className="mb-6">
                 {/* Date Container */}
