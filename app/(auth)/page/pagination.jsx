@@ -25,7 +25,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   }
 
   return (
-    <div className="flex justify-center items-center mt-6">
+    <div  className="flex justify-center items-center mt-6">
       <button
         onClick={handlePrev}
         className="px-4 py-2 mx-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600"

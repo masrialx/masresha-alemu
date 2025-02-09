@@ -7,7 +7,7 @@ function Education() {
       <div className="w-[94%] lg:w-[50%] md:w-[70%] bg-gradient-to-r from-blue-50 to-blue-200 p-6 rounded-lg shadow-lg">
         {/* Title */}
         <div className="text-[24px] font-semibold text-center text-gray-800 mb-6">
-          <h1>Education</h1>
+          <h1 id="education" key="education" >Educational Background</h1>
         </div>
 
         {/* Education List */}

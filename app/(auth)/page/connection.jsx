@@ -67,7 +67,7 @@ export default function Connection() {
   }, [message]);
 
   return (
-    <div className="container mx-auto p-6">
+    <div id="contact" key={4} className="container mx-auto p-6">
       {/* Success/Error Message */}
       {message && isMessageVisible && (
         <div

@@ -3,23 +3,23 @@ import { useState, useEffect, useRef } from "react";
 
 export default function SkillList() {
   const skills = [
-    { name: "HTML", percent: 90 },
-    { name: "CSS", percent: 85 },
-    { name: "JavaScript", percent: 80 },
-    { name: "React.js", percent: 75 },
-    { name: "Next.js", percent: 70 },
+    { name: "HTML", percent: 95 },
+    { name: "CSS", percent: 90 },
+    { name: "JavaScript", percent: 85 },
+    { name: "React.js", percent: 85 },
+    { name: "Next.js", percent: 80 },
     { name: "Python", percent: 80 },
-    { name: "Django", percent: 70 },
-    { name: "Flask", percent: 65 },
-    { name: "Express", percent: 60 },
-    { name: "Node.js", percent: 65 },
-    { name: "MongoDB", percent: 60 },
-    { name: "PostgreSQL", percent: 50 },
-    { name: "Oracle SQL", percent: 55 },
-    { name: "Penetration Testing", percent: 40 },
-    { name: "AI Chatbot", percent: 60 },
-    { name: "Machine Learning", percent: 50 },
-    { name: "Automation", percent: 65 },
+    { name: "Django", percent: 83 },
+    { name: "Flask", percent: 87 },
+    { name: "Express", percent: 90 },
+    { name: "Node.js", percent: 90 },
+    { name: "MongoDB", percent: 95 },
+    { name: "PostgreSQL", percent: 95 },
+    { name: "Oracle SQL", percent: 95 },
+    { name: "Penetration Testing", percent: 70 },
+    { name: "AI Chatbot", percent: 80 },
+    { name: "Machine Learning", percent: 70 },
+    { name: "Automation", percent: 75 },
     { name: "React Native", percent: 70 },
   ];
 
@@ -43,7 +43,7 @@ export default function SkillList() {
   const visibleSkills = showAllSkills ? skills : skills.slice(0, 6); // Show 6 skills initially or all skills if toggled
 
   return (
-    <div className="container mx-auto p-6" ref={sectionRef}>
+    <div id="skills"  key={2} className="container mx-auto p-6" ref={sectionRef}>
       <h1 className="text-center text-2xl sm:text-3xl font-semibold mb-6">My Skills</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {visibleSkills.map((skill, index) => (

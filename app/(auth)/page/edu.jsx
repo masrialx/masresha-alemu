@@ -12,7 +12,7 @@ export default function Edu() {
     intervalRef.current = setInterval(() => {
       nextSlide();
     }, 3000);
-    
+
     return () => clearInterval(intervalRef.current);
   }, [currentIndex]);
 
@@ -41,9 +41,10 @@ export default function Edu() {
   };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto mt-10">
-      <h2 className="text-center text-3xl font-bold mb-6 text-gray-800 dark:text-white">
-        Tech Certificates
+    <div id = "certificates" key="certificates" className="relative w-full max-w-3xl mx-auto mt-10">
+      {/* Title with updated color */}
+      <h2 className="text-center text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-500 via-purple-600 to-indigo-500 mb-6">
+        Certifications & Training
       </h2>
 
       <div
@@ -54,26 +55,26 @@ export default function Edu() {
         {/* Previous Button */}
         <button
           onClick={prevSlide}
-          className="absolute left-0 p-3 bg-gray-700 text-white rounded-full shadow-md hover:bg-gray-600 transition duration-300 z-10"
+          className="absolute left-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
         >
-          &#10094;
+          &#10094; {/* Arrow icon */}
         </button>
 
         {/* Image Container */}
-        <div className="w-[80%] h-72 overflow-hidden rounded-lg shadow-lg border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 flex items-center justify-center">
+        <div className="w-full sm:w-[80%] h-72 sm:h-72 overflow-hidden rounded-lg shadow-xl border-2 border-gray-200 dark:border-gray-700 bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center transition-all duration-500 ease-in-out transform">
           <img
             src={certificates[currentIndex]}
             alt={`Certificate ${currentIndex + 1}`}
-            className="w-full h-full object-contain transition-transform duration-700 ease-in-out"
+            className="w-full h-full object-cover object-center transition-all duration-[1000ms] ease-in-out"
           />
         </div>
 
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute right-0 p-3 bg-gray-700 text-white rounded-full shadow-md hover:bg-gray-600 transition duration-300 z-10"
+          className="absolute right-4 p-3 text-blue-500 font-bold rounded-full shadow-2xl hover:text-blue-700 hover:scale-125 transition duration-300 z-10 transform hidden lg:block"
         >
-          &#10095;
+          &#10095; {/* Arrow icon */}
         </button>
       </div>
 
@@ -84,7 +85,9 @@ export default function Edu() {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
-              index === currentIndex ? "bg-gray-800 dark:bg-white w-4 h-4" : "bg-gray-400"
+              index === currentIndex
+                ? "bg-indigo-600 dark:bg-purple-400 w-4 h-4"
+                : "bg-gray-400 dark:bg-gray-600"
             }`}
           ></div>
         ))}

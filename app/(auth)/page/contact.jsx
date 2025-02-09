@@ -5,28 +5,34 @@ import { useState } from 'react';
 export default function Contact() {
   const contactInfo = [
     {
-      icon: <FaLinkedin size={15} />, // Set icon size to 15
-      link: 'https://www.linkedin.com/in/your-profile', // Replace with your LinkedIn profile link
+      icon: <FaLinkedin size={20} />, // Set icon size to 20
+      link: 'https://www.linkedin.com/in/masresha-alemu-851241232', // LinkedIn link
     },
     {
-      icon: <FaGithub size={15} />, // Set icon size to 15
-      link: 'https://github.com/your-profile', // Replace with your GitHub profile link
+      icon: <FaGithub size={20} />, // Set icon size to 20
+      link: 'https://github.com/masrialemu', // GitHub Account 1
+      
     },
     {
-      icon: <FaTelegram size={15} />, // Set icon size to 15
-      link: 'https://t.me/your-profile', // Replace with your Telegram username
+      icon: <FaGithub size={20} />, // Set icon size to 20
+      link: 'https://github.com/masrialx', // GitHub Account 2
+     
     },
     {
-      icon: <FaPhoneAlt size={15} />, // Set icon size to 15
-      link: 'tel:+1234567890', // Replace with your phone number
+      icon: <FaTelegram size={20} />, // Set icon size to 20
+      link: 'https://t.me/Masri404', // Telegram link
     },
     {
-      icon: <FaLaptopCode size={15} />, // Set icon size to 15
-      link: 'https://leetcode.com/your-profile', // Replace with your LeetCode profile link
+      icon: <FaPhoneAlt size={20} />, // Set icon size to 20
+      link: 'tel:+251979745762', // Phone link
     },
     {
-      icon: <FaEnvelope size={15} />, // Set icon size to 15
-      link: 'mailto:your-email@example.com', // Replace with your email
+      icon: <FaLaptopCode size={20} />, // Set icon size to 20
+      link: 'https://leetcode.com/u/masrialemu/', // LeetCode link
+    },
+    {
+      icon: <FaEnvelope size={20} />, // Set icon size to 20
+      link: 'mailto:masrialemu@gmail.com', // Email link
     },
   ];
 
@@ -34,8 +40,8 @@ export default function Contact() {
 
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-center text-3xl font-bold mb-6">Contact</h1>
-      <div className="flex justify-center space-x-6">
+      <h1 className="text-center text-3xl font-bold mb-6">Contact Me</h1>
+      <div className="flex flex-wrap justify-center gap-6">
         {contactInfo.map((item, index) => (
           <a
             key={index}
@@ -63,6 +69,7 @@ export default function Contact() {
           </a>
         ))}
       </div>
+     
     </div>
   );
 }

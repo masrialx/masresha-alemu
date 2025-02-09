@@ -15,7 +15,7 @@ export default function Footer() {
         <p className="text-lg font-semibold mb-2">© 2025 Masresha Alemu. All Rights Reserved.</p>
         <p className="text-sm mb-4">Your trusted partner for high-quality services and products.</p>
         <p className="text-sm mb-4">
-          Reach out to us at <a href="mailto:contact@yourcompany.com" className="text-blue-200 hover:text-white">masrialemu@gmail.com</a> or call us at <a href="tel:+251979742762" className="text-blue-200 hover:text-white">+1 (234) 567-890</a>.
+          Reach out to us at <a href="mailto:contact@yourcompany.com" className="text-blue-200 hover:text-white">masrialemu@gmail.com</a> or call us at <a href="tel:+251979742762" className="text-blue-200 hover:text-white">+2519-7974-2762</a>.
         </p>
         <p className="text-sm">Current Date: {currentDate}</p>
       </div>
