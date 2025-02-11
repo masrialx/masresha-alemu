@@ -14,8 +14,8 @@ export default function AboutMe() {
   const handleCloseModal = () => setShowResumeModal(false);
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Masresha_Alemu_Resume.pdf";
-    link.download = "Masresha_Alemu_Resume.pdf";
+    link.href = "/Masresha_Alemu_Resume_ATS.pdf";
+    link.download = "Masresha_Alemu_Resume_ATS.pdf";
     link.click();
   };
 
@@ -70,7 +70,7 @@ export default function AboutMe() {
           {/* About Text Section */}
           <div className="w-full sm:w-[70%] lg:w-[50%] text-left px-4 sm:px-8 text-justify">
             <p className="text-lg mb-4">
-              Results-driven software engineer with <span className="font-bold text-red-500">2+</span> years of experience in mobile app development, web app development, AI integration, and cybersecurity. Successfully completed <span className="font-bold text-red-500">50+</span> projects, including <span className="font-bold text-red-500">10+</span> large-scale applications, with <span className="font-bold text-red-500">international</span> and local experience in remote and onsite roles.
+              Results-driven software engineer with <span className="font-bold text-red-500">2+</span> years of experience in mobile app development, web app development, AI integration, and cybersecurity. Successfully completed <span className="font-bold text-red-500">40+</span> projects, including <span className="font-bold text-red-500">10+</span> large-scale applications, with <span className="font-bold text-red-500">international</span> and local experience in remote and onsite roles.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
@@ -124,7 +124,7 @@ export default function AboutMe() {
               }}
             >
               <img
-                src="/Masresha_Alemu_Resume_img.jpg"
+                src="/Masresha_Alemu_Resume_ATS.jpg"
                 alt="Resume Screenshot"
                 className="shadow-lg object-contain w-full h-full max-w-full max-h-full"
                 style={{
