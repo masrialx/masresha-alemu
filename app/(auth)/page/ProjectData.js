@@ -3,7 +3,7 @@ const projectsData = [
     projectType: "AI/ML Projects",
     projects: [
       {
-        projectName: "DOWASHAWO Coffee Export Organization Automation",
+        projectName: "DOWA SHAWO Coffee Export Organization Automation",
         aboutProject: "An email outreach and automation project focused on managing server-side operations for DOWASHAWO Coffee Export Organization. The project enhanced communication efficiency and automated client outreach processes for the coffee export business in Ethiopia.",
         sourceCode: "",
         btns: {
@@ -16,6 +16,24 @@ const projectsData = [
         location: "Ethiopia (German Headquarters)",
         type: "Remote"
       },
+
+      {
+        projectName: "AI-Powered Vulnerability Scanner",
+        aboutProject: "An AI-driven vulnerability scanner using **Nmap** for network analysis, **Proxychain** for IP hiding, and **AI-powered analysis and recommendations** for enhanced security. The project features a **Next.js** front-end and Flask backend.",
+        sourceCode: "https://github.com/masrialx/AI-Powered-Vulnerability-Scanner",
+        btns: {
+          live: "",
+          github: "https://github.com/masrialx/AI-Powered-Vulnerability-Scanner",
+          documentation: "",
+          img: "/ai-vr.jpg"
+        },
+        time: "2025",
+        location: "Ethiopia",
+        type: "Remote"
+      }
+      
+
+      ,
       {
         projectName: "AI-Power Amharic Sign Language Translation",
         aboutProject: "A mobile application that translates Amharic Sign Language into text using AI and computer vision. This project aims to bridge communication gaps for the deaf and hard-of-hearing community.",
