@@ -19,7 +19,7 @@ const projectsData = [
 
       {
         projectName: "AI-Powered Vulnerability Scanner",
-        aboutProject: "An AI-driven vulnerability scanner using **Nmap** for network analysis, **Proxychain** for IP hiding, and **AI-powered analysis and recommendations** for enhanced security. The project features a **Next.js** front-end and Flask backend.",
+        aboutProject: "An AI-driven vulnerability scanner using Nmap for network analysis, Proxychain for IP hiding, and AI-powered analysis and recommendations for enhanced security. The project features a Next.js front-end and Flask backend.",
         sourceCode: "https://github.com/masrialx/AI-Powered-Vulnerability-Scanner",
         btns: {
           live: "",
