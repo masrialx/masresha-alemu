@@ -25,19 +25,20 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   }
 
   return (
-    <div  className="flex justify-center items-center mt-6">
-      <button
-        onClick={handlePrev}
-        className="px-4 py-2 mx-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600"
-        disabled={currentPage === 1}
-      >
-        Prev
-      </button>
+    <div className="flex flex-wrap justify-center items-center mt-6  mx-auto gap-2">
+    <button
+      onClick={handlePrev}
+      className="px-3 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 disabled:opacity-50"
+      disabled={currentPage === 1}
+    >
+      Prev
+    </button>
+    <div className="flex flex-wrap justify-center">
       {pageNumbers.map((page) => (
         <button
           key={page}
           onClick={() => handlePageClick(page)}
-          className={`px-4 py-2 mx-2 rounded-md ${
+          className={`px-3 py-2 m-1 rounded-md ${
             currentPage === page
               ? 'bg-indigo-600 text-white'
               : 'bg-white text-indigo-600 border border-indigo-500'
@@ -46,14 +47,17 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           {page}
         </button>
       ))}
-      <button
-        onClick={handleNext}
-        className="px-4 py-2 mx-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600"
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
     </div>
+    <button
+      onClick={handleNext}
+      className="px-3 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 disabled:opacity-50"
+      disabled={currentPage === totalPages}
+    >
+      Next
+    </button>
+  </div>
+  
+  
   );
 }
 
