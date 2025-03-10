@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/animation.jsx", "app/pages/contact.jsx", "app/pages/footer.jsx", "app/pages/header.jsx", "app/pages/header.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/animation.jsx", "app/pages/contact.jsx", "app/pages/footer.jsx", "app/pages/header.jsx", "app/pages/header.jsx", "app/api/chatbot/route.jsx"],
   "exclude": ["node_modules"]
 }

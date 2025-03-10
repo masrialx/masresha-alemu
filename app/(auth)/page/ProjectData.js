@@ -1,4 +1,64 @@
-const projectsData = [
+const updatedProjectsData = [
+  {
+    projectType: "Current Roles",
+    projects: [
+      {
+        projectName: "Machine Learning Back-End Integration at Addis Financial",
+        aboutProject: "Integrating machine learning into back-end systems for Addis Financial, a USA-based organization. Focused on enhancing AI-driven financial solutions.",
+        sourceCode: "",
+        btns: {
+          live: "http://addisfinancial.com/",
+          github: "",
+          documentation: "",
+          img: "/p3.png" // Placeholder
+        },
+        time: "2025 - Present",
+        location: "USA",
+        type: "Remote"
+      },
+      {
+        projectName: "Full Stack Development at Nilesync",
+        aboutProject: "Full-stack development for Nilesync, a Poland-based organization. Responsibilities include building and maintaining both front-end and back-end components of web applications.",
+        sourceCode: "",
+        btns: {
+          live: "http://nilesync.com/",
+          github: "",
+          documentation: "",
+          img: "/p2.png" // Placeholder
+        },
+        time: "2025 - Present",
+        location: "Poland",
+        type: "Remote"
+      },
+      {
+        projectName: "AI Interview Project with Microsoft Teams Employers",
+        aboutProject: "Developing an AI-powered interview solution in collaboration with a Kenya-based partner. Utilizes Microsoft Teams for integration and deployment.",
+        sourceCode: "",
+        btns: {
+          live: "",
+          github: "",
+          documentation: "",
+          img: "/p1.png" // Placeholder
+        },
+        time: "2025 - Present",
+        location: "Kenya",
+        type: "Remote"
+      },    {
+        projectName: "Delivery Mobile App for Morroco Org",
+        aboutProject: "A logistics and delivery mobile application designed for Morroco Org. Features include real-time tracking, automated dispatch, secure payments, and customer notifications.",
+        sourceCode: "https://github.com/masrialx/morroco-delivery",
+        btns: {
+          live: "",
+          github: "https://github.com/wingyorg/wingy-delivery-mobile",
+          documentation: "",
+          img: "/delevery.jpeg"
+        },
+        time: "2023",
+        location: "Morroco",
+        type: "Remote"
+      },
+    ]
+  },
   {
     projectType: "AI/ML Projects",
     projects: [
@@ -16,7 +76,6 @@ const projectsData = [
         location: "Ethiopia (German Headquarters)",
         type: "Remote"
       },
-
       {
         projectName: "AI-Powered Vulnerability Scanner",
         aboutProject: "An AI-driven vulnerability scanner using Nmap for network analysis, Proxychain for IP hiding, and AI-powered analysis and recommendations for enhanced security. The project features a Next.js front-end and Flask backend.",
@@ -30,10 +89,7 @@ const projectsData = [
         time: "2025",
         location: "Ethiopia",
         type: "Remote"
-      }
-      
-
-      ,
+      },
       {
         projectName: "AI-Power Amharic Sign Language Translation",
         aboutProject: "A mobile application that translates Amharic Sign Language into text using AI and computer vision. This project aims to bridge communication gaps for the deaf and hard-of-hearing community.",
@@ -48,20 +104,7 @@ const projectsData = [
         location: "Ethiopia",
         type: "Remote"
       },
-      {
-        projectName: "Delivery Mobile App for Morroco Org",
-        aboutProject: "A logistics and delivery mobile application designed for Morroco Org. Features include real-time tracking, automated dispatch, secure payments, and customer notifications.",
-        sourceCode: "https://github.com/masrialx/morroco-delivery",
-        btns: {
-          live: "",
-          github: "https://github.com/wingyorg/wingy-delivery-mobile",
-          documentation: "",
-          img: "/delevery.jpeg"
-        },
-        time: "2023",
-        location: "Morroco",
-        type: "Remote"
-      },
+  
       {
         projectName: "Shoes E-Commerce Platform for Kangaro Shoes Org",
         aboutProject: "An e-commerce platform developed for Kangaro Shoes Org, enabling users to browse, purchase, and review products. The system includes an intuitive UI, secure payment integration, and order tracking. This project is still in processing.",
@@ -101,7 +144,7 @@ const projectsData = [
           img: "crd.png"
         },
         time: "2024",
-        location: "Ethiopia",
+        location: "",
         type: "Remote"
       },
       {
@@ -115,7 +158,7 @@ const projectsData = [
           img: "entety.jpeg"
         },
         time: "2025",
-        location: "Ethiopia",
+        location: "",
         type: "Remote"
       },
       {
@@ -129,7 +172,7 @@ const projectsData = [
           img: "solar.jpeg"
         },
         time: "2023",
-        location: "Ethiopia",
+        location: "",
         type: "Remote"
       },
       {
@@ -143,7 +186,7 @@ const projectsData = [
           img: "in.png"
         },
         time: "2024",
-        location: "Remote",
+        location: "",
         type: "Remote"
       },
       {
@@ -157,7 +200,7 @@ const projectsData = [
           img: "rs.jpeg"
         },
         time: "2023",
-        location: "Remote",
+        location: "",
         type: "Remote"
       },
       {
@@ -168,9 +211,37 @@ const projectsData = [
           live: "",
           github: "https://github.com/masrialx/InsuranceRiskPrediction",
           documentation: "",
-          img: "cup-coffee-with-smoke-generative-ai_847288-1756.avif"
+          img: "/p1.png"
         },
         time: "2024",
+        location: "",
+        type: "Remote"
+      },
+      {
+        projectName: "AI-Powered SQL Injector Identifier",
+        aboutProject: "An AI-driven tool designed to detect and identify SQL injection attempts in real-time. Utilizes a custom-trained machine learning model to analyze query patterns and leverages an API for seamless integration into existing systems.",
+        sourceCode: "https://github.com/masrialx/AI-Powered-SQL-Injector-Identifier",
+        btns: {
+          live: "",
+          github: "https://github.com/masrialx/AI-Powered-SQL-Injector-Identifier",
+          documentation: "",
+          img: "/p1.png" // Placeholder
+        },
+        time: "2025",
+        location: "",
+        type: "Remote"
+      },
+      {
+        projectName: "DDoS Attack Prevention",
+        aboutProject: "A machine learning-based solution for preventing Distributed Denial of Service (DDoS) attacks. Features a custom-trained model to detect anomalous traffic patterns and an AI-powered API for real-time mitigation and system protection.",
+        sourceCode: "https://github.com/masrialx/DDoS-Attack-Prevention",
+        btns: {
+          live: "",
+          github: "https://github.com/masrialx/DDoS-Attack-Prevention",
+          documentation: "",
+          img: "/ddos-prevention.jpeg" // Placeholder
+        },
+        time: "2025",
         location: "Remote",
         type: "Remote"
       }
@@ -178,4 +249,4 @@ const projectsData = [
   }
 ];
 
-export default projectsData;
+export default updatedProjectsData;

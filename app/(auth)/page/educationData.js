@@ -25,8 +25,8 @@ const educationData = [
     },
     {
         date: "2025",
-        title: "10Africa - Advanced Machine Learning Certificate (Upcoming)",
-        link: "https://www.10africa.com/",
+        title: "10 Academy - Advanced Machine Learning Certificate (Upcoming)",
+        link: "https://10academy.org/",
         about: "Currently preparing for an advanced machine learning certification with 10Africa. This program will deepen my understanding of AI, neural networks, and data science applications."
     }
 ];
