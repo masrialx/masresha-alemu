@@ -10,7 +10,7 @@ const updatedProjectsData = [
           live: "http://addisfinancial.com/",
           github: "",
           documentation: "",
-          img: "/p3.png" // Placeholder
+          img: "/p1.png" // Placeholder
         },
         time: "2025 - Present",
         location: "USA",
@@ -38,7 +38,7 @@ const updatedProjectsData = [
           live: "",
           github: "",
           documentation: "",
-          img: "/p1.png" // Placeholder
+          img: "/p3.png" // Placeholder
         },
         time: "2025 - Present",
         location: "Kenya",
