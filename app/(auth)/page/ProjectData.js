@@ -3,19 +3,20 @@ const updatedProjectsData = [
     projectType: "Current Roles",
     projects: [
       {
-        projectName: "Machine Learning Back-End Integration at Addis Financial",
-        aboutProject: "Integrating machine learning into back-end systems for Addis Financial, a USA-based organization. Focused on enhancing AI-driven financial solutions.",
+        projectName:"AI Agent & ML Back-End Development at Agents4Hire",
+        aboutProject: "Currently working at Agents4Hire, a USA-based software development company, contributing to AI agent development, LLM integration, intelligent automation, and machine learning-powered back-end systems. Supporting the enhancement of operational efficiency and intelligent financial solutions across industries.",
         sourceCode: "",
         btns: {
-          live: "http://addisfinancial.com/",
+          live: "https://agents4hire.ai",
           github: "",
           documentation: "",
-          img: "/p1.png" // Placeholder
+          img: "/p1.png",
         },
-        time: "2025 - Present",
+        time: "2025",
         location: "USA",
         type: "Remote"
       },
+      
       {
         projectName: "Full Stack Development at Nilesync",
         aboutProject: "Full-stack development for Nilesync, a Poland-based organization. Responsibilities include building and maintaining both front-end and back-end components of web applications.",
@@ -26,24 +27,25 @@ const updatedProjectsData = [
           documentation: "",
           img: "/p2.png" // Placeholder
         },
-        time: "2025 - Present",
+        time: "2025",
         location: "Poland",
         type: "Remote"
       },
       {
-        projectName: "AI Interview Project with Microsoft Teams Employers",
-        aboutProject: "Developing an AI-powered interview solution in collaboration with a Kenya-based partner. Utilizes Microsoft Teams for integration and deployment.",
+        projectName: "HR AI Interview Platform at Sapiens AI",
+        aboutProject: "Contributed to the development of an AI-powered HR interview platform at Sapiens AI, focused on streamlining hiring processes. Participated in both machine learning model implementation and front-end development. The solution integrates with Microsoft Teams and is built in collaboration with a Kenya-based partner.",
         sourceCode: "",
         btns: {
           live: "",
           github: "",
           documentation: "",
-          img: "/p3.png" // Placeholder
+          img: "/p3.png"
         },
-        time: "2025 - Present",
+        time: "2025",
         location: "Kenya",
         type: "Remote"
-      },    {
+      },
+       {
         projectName: "Delivery Mobile App for Morroco Org",
         aboutProject: "A logistics and delivery mobile application designed for Morroco Org. Features include real-time tracking, automated dispatch, secure payments, and customer notifications.",
         sourceCode: "https://github.com/masrialx/morroco-delivery",

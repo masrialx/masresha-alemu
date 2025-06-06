@@ -25,10 +25,11 @@ const educationData = [
     },
     {
         date: "2025",
-        title: "10 Academy - Advanced Machine Learning Certificate (Upcoming)",
+        title: "10 Academy - Advanced Machine Learning Certificate",
         link: "https://10academy.org/",
-        about: "Currently preparing for an advanced machine learning certification with 10Africa. This program will deepen my understanding of AI, neural networks, and data science applications."
+        about: "Successfully completed the Advanced Machine Learning Certification with 10Academy. Gained in-depth knowledge in AI, neural networks, and practical data science applications."
     }
+    
 ];
 
 export default educationData;

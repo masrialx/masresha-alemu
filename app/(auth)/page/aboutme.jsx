@@ -14,8 +14,8 @@ export default function AboutMe() {
   const handleCloseModal = () => setShowResumeModal(false);
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/masresha-alemu-ats-resume10.pdf";
-    link.download = "/masresha-alemu-ats-resume10.pdf";
+    link.href = "/masresha-alemu-ats-resume-updated.pdf";
+    link.download = "/masresha-alemu-ats-resume-updated.pdf";
     link.click();
   };
 
@@ -69,9 +69,10 @@ export default function AboutMe() {
 
           {/* About Text Section */}
           <div className="w-full sm:w-[70%] lg:w-[50%] text-left px-4 sm:px-8 text-justify">
-            <p className="text-lg mb-4">
-              Results-driven software engineer with <span className="font-bold text-red-500">2+</span> years of experience in mobile app development, web app development, AI integration, and cybersecurity. Successfully completed <span className="font-bold text-red-500">15+</span> projects, including <span className="font-bold text-red-500">10+</span> large-scale applications, with <span className="font-bold text-red-500">international</span> and local experience in remote and onsite roles.
-            </p>
+          <p className="text-lg mb-4">
+  Results-driven Software Engineer with <span className="font-bold text-red-500">2+</span> years of hands-on experience in backend and mobile app development. Proficient in <span className="font-bold text-red-500">MERN stack</span>, <span className="font-bold text-red-500">Django</span>, <span className="font-bold text-red-500">Python</span>, <span className="font-bold text-red-500">machine learning</span>, and <span className="font-bold text-red-500">LLM-based AI automation</span>. Proven ability to design scalable systems with <span className="font-bold text-red-500">Flask</span>, <span className="font-bold text-red-500">OpenCV</span>, and <span className="font-bold text-red-500">TensorFlow</span>, ensuring data security and integrity. Adept problem-solver and collaborative team player committed to continuous learning and delivering innovative solutions.
+</p>
+
 
             <div className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
   {/* Connect Button */}
@@ -124,8 +125,8 @@ export default function AboutMe() {
               }}
             >
               <img
-                src="/masresha-alemu-resume-image1.png"
-                alt="Resume Screenshot"
+                src="/masresha-alemu-ats-photo.png"
+                alt="Resume"
                 className="shadow-lg object-contain w-full h-full max-w-full max-h-full"
                 style={{
                   transform: `scale(${zoomLevel}) translate(${position.x}px, ${position.y}px)`,
