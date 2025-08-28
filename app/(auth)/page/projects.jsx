@@ -51,11 +51,12 @@ function Projects() {
             >
               {/* Project Image */}
               <div className="w-full md:w-[45%] lg:w-[30%] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <img
-                  src={projItem.btns.img}
-                  className="w-full min-h-[222px] max-h-[244px] object-cover transform hover:scale-105 transition-transform duration-300"
-                  alt={projItem.projectName}
-                />
+           <img
+  src={projItem.btns.img}
+  className="w-full h-auto max-h-[244px] object-contain transform hover:scale-105 transition-transform duration-300"
+  alt={projItem.projectName}
+/>
+
               </div>
 
               {/* Project Description */}
