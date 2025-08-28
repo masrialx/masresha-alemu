@@ -2,6 +2,23 @@ const updatedProjectsData = [
   {
     projectType: "Current Roles",
     projects: [
+      
+      {
+        projectName: "Machine Learning Data Annotation – Amharic OCR at Meta AI",
+        aboutProject: "Annotated and validated Amharic text for OCR to enhance Meta AI’s ML model accuracy. Performed linguistic corrections and quality checks on 1,500+ tasks using SRT HALO tool, ensuring compliance with security standards.",
+        sourceCode: "",
+        btns: {
+          live: "https://www.rws.com/",
+          github: "",
+          documentation: "",
+          img: "/pp1.png"
+        },
+        time: "2025",
+        location: "Remote",
+        type: "Remote"
+      },
+
+
       {
         projectName:"AI Agent & ML Back-End Development at Agents4Hire",
         aboutProject: "Currently working at Agents4Hire, a USA-based software development company, contributing to AI agent development, LLM integration, intelligent automation, and machine learning-powered back-end systems. Supporting the enhancement of operational efficiency and intelligent financial solutions across industries.",
@@ -10,7 +27,7 @@ const updatedProjectsData = [
           live: "https://agents4hire.ai",
           github: "",
           documentation: "",
-          img: "/p1.png",
+          img: "/ag.png",
         },
         time: "2025",
         location: "USA",
@@ -22,10 +39,10 @@ const updatedProjectsData = [
         aboutProject: "Full-stack development for Nilesync, a Poland-based organization. Responsibilities include building and maintaining both front-end and back-end components of web applications.",
         sourceCode: "",
         btns: {
-          live: "http://nilesync.com/",
+          live: "https://www.nilesync.com",
           github: "",
           documentation: "",
-          img: "/p2.png" // Placeholder
+          img: "/nc.png" // Placeholder
         },
         time: "2025",
         location: "Poland",
@@ -36,24 +53,24 @@ const updatedProjectsData = [
         aboutProject: "Contributed to the development of an AI-powered HR interview platform at Sapiens AI, focused on streamlining hiring processes. Participated in both machine learning model implementation and front-end development. The solution integrates with Microsoft Teams and is built in collaboration with a Kenya-based partner.",
         sourceCode: "",
         btns: {
-          live: "",
+          live: "https://sapienstech.net",
           github: "",
           documentation: "",
-          img: "/p3.png"
+          img: "/sp.png"
         },
         time: "2025",
         location: "Kenya",
         type: "Remote"
       },
        {
-        projectName: "Delivery Mobile App for Morroco Org",
+        projectName: "Delivery Mobile App for Morroco startup",
         aboutProject: "A logistics and delivery mobile application designed for Morroco Org. Features include real-time tracking, automated dispatch, secure payments, and customer notifications.",
         sourceCode: "https://github.com/masrialx/morroco-delivery",
         btns: {
-          live: "",
-          github: "https://github.com/wingyorg/wingy-delivery-mobile",
+          live: "https://www.wingy.ma/",
+          github: "",
           documentation: "",
-          img: "/delevery.jpeg"
+          img: "/wg.png"
         },
         time: "2023",
         location: "Morroco",

@@ -14,8 +14,8 @@ export default function AboutMe() {
   const handleCloseModal = () => setShowResumeModal(false);
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/masresha-alemu-ats-resume-updated.pdf";
-    link.download = "/masresha-alemu-ats-resume-updated.pdf";
+    link.href = "/masresha_alemu_adasho.pdf";
+    link.download = "/masresha_alemu_adasho.pdf";
     link.click();
   };
 
@@ -59,18 +59,17 @@ export default function AboutMe() {
 
         <div className="flex flex-col lg:flex-row justify-center items-center space-y-6 lg:space-y-0 lg:space-x-6">
           {/* Profile Image Section */}
-          <div className="w-full sm:w-[50%] lg:w-[30%] h-80 relative rounded-full overflow-hidden border-8 border-gradient-to-r from-teal-400 to-lime-500 bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 shadow-xl">
+      <div className="w-full sm:w-[50%] lg:w-[30%] aspect-square relative rounded-full overflow-hidden border-8 border-gradient-to-r from-teal-400 to-lime-500 bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 shadow-xl">
             <div
-              className="absolute inset-0 bg-cover bg-center backdrop-blur-sm"
+              className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: "url('/masri1.jpg')" }}
             />
-            <div className="w-full h-full bg-[rgb(202,199,25)] opacity-0" />
           </div>
 
           {/* About Text Section */}
           <div className="w-full sm:w-[70%] lg:w-[50%] text-left px-4 sm:px-8 text-justify">
           <p className="text-lg mb-4">
-  Results-driven Software Engineer with <span className="font-bold text-red-500">2+</span> years of hands-on experience in backend and mobile app development. Proficient in <span className="font-bold text-red-500">MERN stack</span>, <span className="font-bold text-red-500">Django</span>, <span className="font-bold text-red-500">Python</span>, <span className="font-bold text-red-500">machine learning</span>, and <span className="font-bold text-red-500">LLM-based AI automation</span>. Proven ability to design scalable systems with <span className="font-bold text-red-500">Flask</span>, <span className="font-bold text-red-500">OpenCV</span>, and <span className="font-bold text-red-500">TensorFlow</span>, ensuring data security and integrity. Adept problem-solver and collaborative team player committed to continuous learning and delivering innovative solutions.
+  Results-driven Software Engineer with <span className="font-bold text-red-500">3+</span> years of hands-on experience in backend and mobile app development. Proficient in <span className="font-bold text-red-500">MERN stack</span>, <span className="font-bold text-red-500">Django</span>, <span className="font-bold text-red-500">Python</span>, <span className="font-bold text-red-500">machine learning</span>, and <span className="font-bold text-red-500">LLM-based AI automation</span>. Proven ability to design scalable systems with <span className="font-bold text-red-500">Flask</span>, <span className="font-bold text-red-500">OpenCV</span>, and <span className="font-bold text-red-500">TensorFlow</span>, ensuring data security and integrity. Adept problem-solver and collaborative team player committed to continuous learning and delivering innovative solutions.
 </p>
 
 
@@ -125,7 +124,7 @@ export default function AboutMe() {
               }}
             >
               <img
-                src="/masresha-alemu-ats-photo.png"
+                src="/masresha_alemu_adasho.png"
                 alt="Resume"
                 className="shadow-lg object-contain w-full h-full max-w-full max-h-full"
                 style={{
