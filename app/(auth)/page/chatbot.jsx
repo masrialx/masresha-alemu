@@ -42,6 +42,11 @@ export default function Chatbot() {
           },
           body: JSON.stringify({
             message: userMessage,
+            // Send the last 2 exchanges (up to ~4 turns) for lightweight context
+            history: newChatHistory.slice(-4).map((h) => ({
+              role: h.sender === "user" ? "user" : "assistant",
+              content: h.message,
+            })),
           }),
         });
 
@@ -87,6 +92,19 @@ export default function Chatbot() {
       setNewMessage(false);
     }
   }, [isOpen, greetingSent]);
+
+  // Ensure no persistence across refresh: do not read/write localStorage or sessionStorage
+  // and clear any accidental persisted keys if present from older versions.
+  useEffect(() => {
+    try {
+      if (typeof window !== "undefined") {
+        window.sessionStorage?.removeItem("chatHistory");
+        window.localStorage?.removeItem("chatHistory");
+      }
+    } catch (_) {
+      // Ignore storage errors
+    }
+  }, []);
   
   return (
     <div>

@@ -87,36 +87,67 @@ const aboutMasresha = {
 
 export async function POST(req) {
   try {
+    // 1. Verify the API key is available
     if (!process.env.GEMINI_API_KEY) {
-      return new Response(JSON.stringify({ error: "Missing API key" }), { status: 500 });
+      console.error("GEMINI_API_KEY is not set in environment variables.");
+      return new Response(JSON.stringify({ error: "Server configuration error: Missing API key" }), { status: 500 });
     }
 
+    // 2. Parse the request body safely
     let requestBody;
     try {
       requestBody = await req.json();
     } catch (error) {
-      return new Response(JSON.stringify({ error: "Invalid JSON input" }), { status: 400 });
+      return new Response(JSON.stringify({ error: "Invalid JSON format in request body" }), { status: 400 });
     }
 
-    const { message } = requestBody;
-    if (!message) {
-      return new Response(JSON.stringify({ error: "Message is required" }), { status: 400 });
+    const { message, history } = requestBody;
+    if (!message || typeof message !== 'string') {
+      return new Response(JSON.stringify({ error: "Field 'message' is required and must be a string" }), { status: 400 });
     }
 
+    // Prepare short context from provided history (last ~2 user/assistant pairs)
+    let shortContext = '';
+    if (Array.isArray(history)) {
+      try {
+        const trimmed = history.slice(-4); // at most 4 turns
+        const lines = trimmed.map((h) => {
+          const role = h?.role === 'assistant' ? 'Assistant' : 'User';
+          const content = typeof h?.content === 'string' ? h.content : '';
+          return `${role}: ${content}`;
+        });
+        shortContext = lines.join("\n");
+      } catch (_) {
+        shortContext = '';
+      }
+    }
+
+    // 3. Initialize the Generative AI client
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-    const prompt = `You are an assistant answering questions based on the following information about Masresha Alemu:\n\n${JSON.stringify(aboutMasresha, null, 2)}\n\nUser's question (assuming they are asking about Masresha Alemu): ${message}\n\nRespond concisely, always including relevant details about Masresha Alemu, and limit your response to 100 words.`;
-
-    const result = await model.generateContent({
-      contents: [{ parts: [{ text: prompt }] }],
+    
+    // 4. Get the model and apply the generation config
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.0-flash",
       generationConfig: { maxOutputTokens: 200 }
     });
 
-    const text = result.response.text();
-    return new Response(JSON.stringify({ message: text }), { status: 200 });
+    // 5. Construct the prompt
+    const prompt = `You are an AI bot simulating Masresha Alemu, a software engineer. Use the following information about Masresha Alemu to respond. You are given a very short recent conversation context (last few turns). If context is empty, treat this as a fresh conversation.\n\nAbout Masresha:\n${JSON.stringify(aboutMasresha, null, 2)}\n\nRecent context (most recent last):\n${shortContext}\n\nUser's new message: ${message}\n\nIf the user's message is a casual greeting or personal question (e.g., "hi", "how are you", "hyy", "nice to meet you", "how are", "nice to meeet u", "huuu", "helloooo"), respond warmly and personally as Masresha Alemu without explaining projects: say something like "Hi! I'm Masresha's personal assistant. What can I help you with today?" For other questions about Masresha, answer factually using relevant details from the info, but do not explain projects unless specifically asked.\n\nRespond concisely, limit to 100 words.`;
+
+    // 6. Call the model with the prompt string
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
+
+    // 7. Send the successful response
+    return new Response(JSON.stringify({ message: text }), { 
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
+
   } catch (error) {
-    console.error("Error:", error);
-    return new Response(JSON.stringify({ error: "Something went wrong!" }), { status: 500 });
+    // 8. Handle any errors during the process
+    console.error("Error in generative AI API call:", error);
+    return new Response(JSON.stringify({ error: "An internal server error occurred." }), { status: 500 });
   }
 }
