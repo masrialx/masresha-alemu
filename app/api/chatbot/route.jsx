@@ -36,7 +36,7 @@ const aboutMasresha = {
 
   contact: {
     GitHub: ["https://github.com/masrialx"],
-    LinkedIn: "https://linkedin.com/in/masresha-alemu-851241232",
+    LinkedIn: "https://www.linkedin.com/in/masresha-a-851241232/",
     Phone: "+251979742762",
     Email: "masrialemu@gmail.com",
     Portfolio: "https://masresha-alemu.netlify.app"
