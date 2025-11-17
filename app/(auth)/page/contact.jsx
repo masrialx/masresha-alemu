@@ -6,7 +6,7 @@ export default function Contact() {
   const contactInfo = [
     {
       icon: <FaLinkedin size={20} />, // Set icon size to 20
-      link: 'https://www.linkedin.com/in/masresha-alemu-851241232', // LinkedIn link
+      link: 'https://www.linkedin.com/in/masresha-a-851241232/', // LinkedIn link
     },
     {
       icon: <FaGithub size={20} />, // Set icon size to 20

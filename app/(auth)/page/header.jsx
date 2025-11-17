@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Link from "next/link";
-import Image from "next/image";
-import { FaMoon, FaSun, FaHome, FaUser, FaLaptopCode, FaBriefcase, FaPhone, FaBars, FaTimes, FaCertificate, FaGraduationCap } from "react-icons/fa"; // Added FaGraduationCap for the new Education menu item
+import { FaMoon, FaSun, FaHome, FaUser, FaLaptopCode, FaBriefcase, FaPhone, FaBars, FaTimes, FaCertificate, FaGraduationCap, FaStar } from "react-icons/fa"; // Added FaStar for Recommendations
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -38,6 +37,7 @@ export default function Header() {
     { name: "Projects", icon: <FaBriefcase />, id: "projects" },
     { name: "Education", icon: <FaGraduationCap />, id: "education" },
     { name: "Certificates", icon: <FaCertificate />, id: "certificates" },
+    { name: "Recommendations", icon: <FaStar />, id: "recommendations" },
     { name: "Contact", icon: <FaPhone />, id: "contact" },
   ];
 
@@ -74,8 +74,21 @@ export default function Header() {
   return (
     <div className="bg-[#0a192f] text-white min-h-screen font-sans">
       <nav className="fixed top-0 left-0 w-full bg-[#0a192f] px-4 md:px-6 py-3 flex justify-between items-center shadow-md z-50">
-        <Link href="/">
-          <Image src="/logos1.png" alt="Logo" width={80} height={24} className="cursor-pointer" />
+        <Link href="/" className="cursor-pointer group">
+          <div className="flex items-center justify-center">
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Main logo container */}
+              <div className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-500 rounded-full w-12 h-12 md:w-14 md:h-14 flex items-center justify-center shadow-xl ring-2 ring-blue-400/50 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                <span className="text-xl md:text-2xl font-extrabold text-white tracking-tight drop-shadow-lg">
+                  MA
+                </span>
+              </div>
+              {/* Animated border */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400 opacity-0 group-hover:opacity-100 animate-pulse transition-opacity duration-300"></div>
+            </div>
+          </div>
         </Link>
         <button onClick={() => setOpen(!open)} className="md:hidden text-3xl text-white focus:outline-none">
           {open ? <FaTimes /> : <FaBars />}

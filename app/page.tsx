@@ -10,6 +10,7 @@ import Chatbot from './(auth)/page/chatbot'
 import Project from './(auth)/page/projects'
 import Education from './(auth)/page/education'
 import Edu from './(auth)/page/edu'
+import Recommendations from './(auth)/page/recommendations'
 const Pages = () => {
   return (
     <div>
@@ -24,6 +25,7 @@ const Pages = () => {
       <Education/>
       <Edu/>
       <Connection/>
+      <Recommendations/>
       <Footer/>
       </main>
     </div>
