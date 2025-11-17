@@ -62,7 +62,7 @@ export default function AboutMe() {
       <div className="w-full sm:w-[50%] lg:w-[30%] aspect-square relative rounded-full overflow-hidden border-8 border-gradient-to-r from-teal-400 to-lime-500 bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500 shadow-xl">
             <div
               className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: "url('/masri1.jpg')" }}
+              style={{ backgroundImage: "url('/masri.png')" }}
             />
           </div>
 
