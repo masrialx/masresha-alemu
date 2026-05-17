@@ -78,7 +78,10 @@ The portfolio includes a professional recommendations section that displays test
 
 The website includes an AI-powered chatbot that simulates conversations about your professional background. The chatbot is powered by Google Gemini AI and uses information from your portfolio.
 
-**Configuration**: Set up your `GEMINI_API_KEY` in environment variables.
+**Configuration**: Add to `.env` (see `.env.example`):
+
+- `GEMINI_API_KEY` — from [Google AI Studio](https://aistudio.google.com/apikey)
+- `GEMINI_MODEL` — defaults to `gemini-3-flash-preview` ([Gemini 3 Flash docs](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview))
 
 ## Technologies Used
 
@@ -95,6 +98,7 @@ Create a `.env.local` file in the root directory:
 
 ```env
 GEMINI_API_KEY=your_gemini_api_key_here
+GEMINI_MODEL=gemini-3-flash-preview
 ```
 
 ## Customization

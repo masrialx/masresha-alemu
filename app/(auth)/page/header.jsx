@@ -122,10 +122,10 @@ export default function Header() {
   >
     <h2 className="text-base sm:text-lg md:text-xl text-green-400 font-extrabold">My name is</h2>
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-yellow-400">Masresha Alemu</h1>
-    <p className="text-xl sm:text-2xl mt-2 font-extrabold">Mid-Level Software Engineer</p>
+    <p className="text-xl sm:text-2xl mt-2 font-extrabold">Full Stack & AI Engineer</p>
     <h3 className="text-yellow-300 text-xl sm:text-2xl mt-2 font-extrabold">
       <Typewriter
-        options={{ strings: ["Python", "Django", "Machine Learning"], autoStart: true, loop: true }}
+        options={{ strings: ["AI Agents", "LLM Automation", "SaaS Platforms", "Python", "Go"], autoStart: true, loop: true }}
       />
     </h3>
     <button

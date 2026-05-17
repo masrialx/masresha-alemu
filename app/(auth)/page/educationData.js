@@ -1,9 +1,9 @@
 const educationData = [
     {
-        date: "2022 - 2025",
-        title: "Unity University",
+        date: "2021 - 2026",
+        title: "Unity University — B.Sc. Computer Science",
         link: "https://uu.edu.et/",
-        about: "Currently pursuing a Bachelor's degree in Computer Science. My time at Unity University has been instrumental in strengthening my problem-solving skills and deepening my knowledge in software development."
+        about: "Bachelor of Science in Computer Science. Built a strong foundation in software engineering, algorithms, and full-stack development while applying coursework to real-world AI and web projects."
     },
     {
         date: "2023",

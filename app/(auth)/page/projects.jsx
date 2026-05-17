@@ -26,10 +26,10 @@ function Projects() {
         {/* Title Section */}
         <div className="text-center mb-12">
           <h2 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-            Notable Projects & Contributions
+            Professional Experience & Projects
           </h2>
           <p id="projects" key="projects" className="text-lg text-gray-600">
-            Explore the impactful projects I've contributed to and developed.
+            Production roles with international teams, plus selected technical projects.
           </p>
         </div>
 
