@@ -1,63 +1,40 @@
-"use client"; // Add this to ensure the component is treated as a Client Component
-
-import React from 'react';
+"use client";
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
-  const handlePrev = () => {
-    if (currentPage > 1) {
-      onPageChange(currentPage - 1);
-    }
-  };
-
-  const handleNext = () => {
-    if (currentPage < totalPages) {
-      onPageChange(currentPage + 1);
-    }
-  };
-
-  const handlePageClick = (page) => {
-    onPageChange(page);
-  };
-
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
-    <div className="flex flex-wrap justify-center items-center mt-6  mx-auto gap-2">
-    <button
-      onClick={handlePrev}
-      className="px-3 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 disabled:opacity-50"
-      disabled={currentPage === 1}
-    >
-      Prev
-    </button>
-    <div className="flex flex-wrap justify-center">
+    <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+        className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-brand-navy hover:text-brand-navy disabled:opacity-40"
+      >
+        Prev
+      </button>
+
       {pageNumbers.map((page) => (
         <button
           key={page}
-          onClick={() => handlePageClick(page)}
-          className={`px-3 py-2 m-1 rounded-md ${
+          onClick={() => onPageChange(page)}
+          className={`min-w-[40px] rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
             currentPage === page
-              ? 'bg-indigo-600 text-white'
-              : 'bg-white text-indigo-600 border border-indigo-500'
-          } hover:bg-indigo-500 hover:text-white`}
+              ? "bg-brand-navy text-white shadow-md"
+              : "border border-slate-200 bg-white text-slate-600 hover:border-brand-navy"
+          }`}
         >
           {page}
         </button>
       ))}
+
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+        className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-brand-navy hover:text-brand-navy disabled:opacity-40"
+      >
+        Next
+      </button>
     </div>
-    <button
-      onClick={handleNext}
-      className="px-3 py-2 rounded-md bg-indigo-500 text-white hover:bg-indigo-600 disabled:opacity-50"
-      disabled={currentPage === totalPages}
-    >
-      Next
-    </button>
-  </div>
-  
-  
   );
 }
 

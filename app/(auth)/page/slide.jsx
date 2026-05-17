@@ -1,71 +1,49 @@
-"use client"; // <-- Add this at the top
+"use client";
 
 import Image from "next/image";
 
+const TECH_ICONS = [
+  "/python.png",
+  "/java-script.png",
+  "/django.png",
+  "/generative.png",
+  "/vercel.svg",
+  "/java.png",
+  "/html-5.png",
+  "/c-sharp.png",
+  "/php.png",
+  "/globe.svg",
+  "/file.svg",
+  "/files.png",
+];
+
+function IconRow({ prefix = "" }) {
+  return (
+    <>
+      {TECH_ICONS.map((src) => (
+        <div
+          key={`${prefix}${src}`}
+          className="relative mx-4 h-12 w-12 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-14 sm:w-14"
+        >
+          <Image src={src} alt="" fill className="object-contain" />
+        </div>
+      ))}
+    </>
+  );
+}
+
 export default function Slide() {
   return (
-    <div className="flex justify-center">
-      <div className="overflow-hidden w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] flex justify-center bg-[rgb(151,150,148)] bg-opacity-10">
-        {/* Flex container for images */}
-        <div className="flex animate-slideRight w-full gap-4 sm:gap-6 md:gap-8">
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/file.svg" alt="file" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-0">
-            <Image src="/java.png" alt="java" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/vercel.svg" alt="vercel" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/c-sharp.png" alt="c-sharp" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/generative.png" alt="generative" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/java-script.png" alt="java-script" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/php.png" alt="php" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/window.svg" alt="window" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/django.png" alt="django" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/globe.svg" alt="globe" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/python.png" alt="python" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/files.png" alt="files" layout="fill" objectFit="cover" />
-          </div>
-          <div className="flex-none w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 relative opacity-40">
-            <Image src="/html-5.png" alt="html-5" layout="fill" objectFit="cover" />
-          </div>
+    <section className="overflow-hidden border-y border-slate-200 bg-white py-6">
+      <p className="mb-4 text-center text-xs font-medium uppercase tracking-widest text-slate-400">
+        Technologies I work with
+      </p>
+      <div className="marquee-mask relative">
+        <div className="flex w-max animate-marquee">
+          <IconRow prefix="a-" />
+          <IconRow prefix="b-" />
         </div>
       </div>
-
-      {/* Add this CSS for sliding animation */}
-      <style jsx>{`
-        .animate-slideRight {
-          display: flex;
-          animation: slideRight 15s linear infinite;
-        }
-
-        @keyframes slideRight {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      `}</style>
-    </div>
+    </section>
   );
 }

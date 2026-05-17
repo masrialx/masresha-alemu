@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import Pagination from "./pagination";
 import projectsData from "./ProjectData";
+import SectionHeader from "./SectionHeader";
 
 function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -11,128 +12,105 @@ function Projects() {
 
   const indexOfLastProject = currentPage * projectsPerPage;
   const indexOfFirstProject = indexOfLastProject - projectsPerPage;
-
   const flattenedProjects = projectsData.flatMap((item) => item.projects);
-
   const currentProjects = flattenedProjects.slice(indexOfFirstProject, indexOfLastProject);
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className="w-full flex justify-center py-10 bg-white">
-      <div className="w-full lg:w-[70%] px-6">
-        {/* Title Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 leading-tight mb-4">
-            Professional Experience & Projects
-          </h2>
-          <p id="projects" key="projects" className="text-lg text-gray-600">
-            Production roles with international teams, plus selected technical projects.
-          </p>
+    <section className="section-shell bg-white">
+      <div className="section-inner">
+        <div id="projects">
+          <SectionHeader
+            label="Work"
+            title="Experience & Projects"
+            subtitle="Production roles with international teams and selected technical projects"
+          />
         </div>
 
-        {/* Display Projects */}
-        {currentProjects.map((projItem, index) => (
-          <div key={index} className="mb-10">
-            {/* Dashed Line */}
-            <div className="w-full h-fit pl-[25px]">
-              <div className="border-l h-9 border-dashed border-gray-400 w-4" />
-            </div>
-
-            {/* Project Card */}
-            <div
-              className={`md:flex justify-center items-center space-x-4 rounded-lg shadow-lg overflow-hidden mb-6 transform transition-transform duration-300 hover:scale-105 hover:shadow-xl ${
-                index % 2 === 0
-                  ? "bg-gradient-to-r from-teal-500 to-lime-400"
-                  : "bg-gradient-to-r from-pink-400 to-yellow-400"
-              }`}
+        <div className="space-y-6">
+          {currentProjects.map((projItem, index) => (
+            <article
+              key={`${projItem.projectName}-${index}`}
+              className="card-modern overflow-hidden lg:flex lg:items-stretch"
             >
-              {/* Project Image */}
-              <div className="w-full md:w-[45%] lg:w-[30%] rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-           <img
-  src={projItem.btns.img}
-  className="w-full h-auto max-h-[244px] object-contain transform hover:scale-105 transition-transform duration-300"
-  alt={projItem.projectName}
-/>
-
+              <div className="lg:w-2/5 bg-slate-100 p-4 flex items-center justify-center">
+                <img
+                  src={projItem.btns.img}
+                  className="max-h-48 w-full object-contain rounded-lg"
+                  alt={projItem.projectName}
+                />
               </div>
 
-              {/* Project Description */}
-              <div className="border border-gray-300 p-6 md:w-[45%] lg:w-[65%] rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white">
-                <div className="font-semibold text-2xl text-gray-900 mb-2 text-center">
-                  {projItem.projectName}
+              <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-7">
+                <h3 className="text-xl font-bold text-slate-900 sm:text-2xl">{projItem.projectName}</h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{projItem.aboutProject}</p>
+
+                <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
+                  <span className="rounded-full bg-slate-100 px-3 py-1">{projItem.time}</span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1">{projItem.location}</span>
+                  <span className="rounded-full bg-rose-50 px-3 py-1 text-rose-600">{projItem.type}</span>
                 </div>
 
-                <div className="text-lg text-gray-700 mb-4 text-center">
-                  {projItem.aboutProject}
-                </div>
-
-                {/* Time, Location, and Type */}
-                <div className="text-sm text-gray-600 mb-4 text-center">
-                  <p>
-                    <strong>Time:</strong> {projItem.time} | <strong>Location:</strong> {projItem.location} |{" "}
-                    <strong>Type:</strong> {projItem.type}
-                  </p>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-x-4 mt-4 justify-center flex-wrap">
-                  {/* View Live Button */}
+                <div className="mt-5 flex flex-wrap gap-2">
                   {projItem.btns.live && (
-                    <div className="bg-[#0a192f] hover:bg-white hover:text-black border border-[#0a192f] hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-white hover:text-black hover:no-underline mb-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                      <a href={projItem.btns.live} className="text-center w-full">
-                        View Live
-                      </a>
-                    </div>
+                    <a
+                      href={projItem.btns.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary gap-2 px-4 py-2 text-xs sm:text-sm"
+                    >
+                      <FaExternalLinkAlt size={12} /> View Live
+                    </a>
                   )}
-
-                  {/* GitHub Button */}
                   {projItem.btns.github && (
-                    <div className="bg-[#0a192f] hover:bg-white hover:text-black border border-[#0a192f] hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-white hover:text-black hover:no-underline mb-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                      <a href={projItem.btns.github} className="flex items-center space-x-2 hover:underline text-center w-full">
-                        <FaGithub size={16} />
-                        <span>Source Code</span>
-                      </a>
-                    </div>
+                    <a
+                      href={projItem.btns.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline gap-2 px-4 py-2 text-xs sm:text-sm"
+                    >
+                      <FaGithub size={14} /> Source
+                    </a>
                   )}
-
-                  {/* Documentation Button */}
                   {projItem.btns.documentation && (
-                    <div className="bg-[#0a192f] hover:bg-white hover:text-black border border-[#0a192f] hover:border-black px-[12px] py-[6px] rounded-full flex justify-center items-center text-[14px] text-white hover:text-black hover:no-underline mb-2 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                      <a href={projItem.btns.documentation} className="text-center w-full">
-                        Documentation
-                      </a>
-                    </div>
+                    <a
+                      href={projItem.btns.documentation}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-outline px-4 py-2 text-xs sm:text-sm"
+                    >
+                      Docs
+                    </a>
                   )}
                 </div>
               </div>
-            </div>
-          </div>
-        ))}
+            </article>
+          ))}
+        </div>
 
-        {/* Pagination */}
         <Pagination
           currentPage={currentPage}
           totalPages={Math.ceil(flattenedProjects.length / projectsPerPage)}
           onPageChange={handlePageChange}
         />
 
-        {/* GitHub Link for More Projects */}
-        <div className="flex justify-center items-center mt-8">
+        <div className="mt-8 text-center">
           <a
             href="https://github.com/masrialx"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-700 hover:text-gray-900 flex items-center space-x-2"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition-colors hover:text-brand-navy"
           >
-            <FaGithub size={32} />
-            <span>See More Projects on GitHub</span>
+            <FaGithub size={20} />
+            More projects on GitHub
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

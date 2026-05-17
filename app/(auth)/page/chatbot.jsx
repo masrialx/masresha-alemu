@@ -149,10 +149,9 @@ export default function Chatbot() {
     <>
       <div
         onClick={handleChatToggle}
-        className="fixed right-4 bg-blue-600 text-white p-3 rounded-full cursor-pointer shadow-lg hover:bg-blue-700 transition-all duration-300"
+        className="fixed right-4 z-[1000] flex h-14 w-14 cursor-pointer items-center justify-center rounded-2xl bg-gradient-to-br from-rose-500 to-sky-500 text-white shadow-glow transition-all duration-300 hover:scale-105"
         style={{
-          bottom: isOpen ? "400px" : "1rem",
-          zIndex: 1000,
+          bottom: isOpen ? "420px" : "1.25rem",
         }}
         aria-label="Open chat assistant"
         role="button"
@@ -160,34 +159,36 @@ export default function Chatbot() {
         onKeyDown={(e) => e.key === "Enter" && handleChatToggle()}
       >
         {newMessage && !isOpen && (
-          <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-red-600 rounded-full" />
+          <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full bg-white ring-2 ring-rose-500" />
         )}
         <FaRobot size={28} />
       </div>
 
       {isOpen && (
-        <div className="fixed bottom-0 right-0 w-full max-w-xs bg-white border-2 border-blue-500 rounded-lg shadow-xl shadow-blue-500/50 z-50">
-          <div className="flex items-center justify-between px-3 py-2 border-b border-gray-200 bg-[#0a192f] text-white rounded-t-lg">
+        <div className="fixed bottom-0 right-0 z-50 w-full max-w-sm overflow-hidden rounded-t-2xl border border-slate-200 bg-white shadow-2xl sm:bottom-4 sm:right-4 sm:rounded-2xl">
+          <div className="flex items-center justify-between bg-brand-navy px-4 py-3 text-white">
             <span className="text-sm font-semibold">Masresha&apos;s Assistant</span>
             <button
               type="button"
               onClick={clearChat}
-              className="text-xs text-blue-200 hover:text-white underline"
+              className="text-xs text-sky-300 hover:text-white"
               title="Clear chat and start new session"
             >
               Clear
             </button>
           </div>
-          <div className="flex flex-col h-[400px]">
-            <div className="flex-1 overflow-y-auto p-2 space-y-2 text-sm">
+          <div className="flex h-[400px] flex-col">
+            <div className="flex-1 space-y-2 overflow-y-auto p-3 text-sm">
               {chatHistory.map((chat, index) => (
                 <div
                   key={index}
                   className={`flex ${chat.sender === "user" ? "justify-end" : "justify-start"}`}
                 >
                   <div
-                    className={`p-3 max-w-[85%] rounded-lg break-words whitespace-pre-line text-sm leading-relaxed ${
-                      chat.sender === "user" ? "bg-blue-600 text-white" : "bg-gray-200 text-black"
+                    className={`max-w-[85%] break-words whitespace-pre-line rounded-2xl px-3 py-2.5 text-sm leading-relaxed ${
+                      chat.sender === "user"
+                        ? "bg-brand-navy text-white"
+                        : "bg-slate-100 text-slate-800"
                     }`}
                   >
                     {chat.sender === "bot" ? formatDisplayMessage(chat.message) : chat.message}
@@ -196,29 +197,29 @@ export default function Chatbot() {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="p-3 rounded-lg bg-gray-200 text-gray-600 text-sm">Typing...</div>
+                  <div className="rounded-2xl bg-slate-100 px-3 py-2.5 text-sm text-slate-500">Typing...</div>
                 </div>
               )}
               <div ref={chatEndRef} />
             </div>
 
-            <div className="flex items-center space-x-2 p-2 border-t border-gray-100">
+            <div className="flex items-center gap-2 border-t border-slate-100 p-3">
               <input
                 type="text"
                 value={userMessage}
                 onChange={(e) => setUserMessage(e.target.value)}
                 onKeyDown={handleKeyPress}
-                placeholder="Ask about experience, skills, contact..."
+                placeholder="Ask about experience, skills..."
                 maxLength={400}
                 disabled={isLoading}
                 autoComplete="off"
-                className="w-full p-2 text-sm border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 disabled:opacity-60"
+                className="w-full rounded-xl border border-slate-200 px-3 py-2 text-sm focus:border-sky-400 focus:outline-none focus:ring-2 focus:ring-sky-400/20 disabled:opacity-60"
               />
               <button
                 type="button"
                 onClick={handleSendMessage}
                 disabled={isLoading || !userMessage.trim()}
-                className="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed min-w-[52px]"
+                className="min-w-[52px] rounded-xl bg-rose-500 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {isLoading ? "..." : "Send"}
               </button>

@@ -1,23 +1,26 @@
-"use client"; // <-- Add this at the top
-import { useState, useEffect } from "react";
+"use client";
 
 export default function Footer() {
-  const [currentDate, setCurrentDate] = useState("");
-
-  useEffect(() => {
-    const date = new Date().toLocaleDateString();
-    setCurrentDate(date);
-  }, []);
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#0a192f] text-white py-8 mt-12">
-      <div className="container mx-auto text-center">
-        <p className="text-lg font-semibold mb-2">© 2025 Masresha Alemu. All Rights Reserved.</p>
-        <p className="text-sm mb-4">Your trusted partner for high-quality services and products.</p>
-        <p className="text-sm mb-4">
-          Reach out to us at <a href="mailto:contact@yourcompany.com" className="text-blue-200 hover:text-white">masrialemu@gmail.com</a> or call us at <a href="tel:+251979742762" className="text-blue-200 hover:text-white">+2519-7974-2762</a>.
+    <footer className="border-t border-white/10 bg-brand-dark py-10 text-slate-400">
+      <div className="section-inner text-center">
+        <p className="text-sm font-semibold text-white">
+          © {year} Masresha Alemu
         </p>
-        <p className="text-sm">Current Date: {currentDate}</p>
+        <p className="mt-2 text-xs sm:text-sm">
+          Full Stack &amp; AI Engineer · Building SaaS, agents &amp; automation
+        </p>
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-4 text-sm">
+          <a href="mailto:masrialemu@gmail.com" className="transition-colors hover:text-sky-400">
+            masrialemu@gmail.com
+          </a>
+          <span className="hidden sm:inline text-slate-600">|</span>
+          <a href="tel:+251979745762" className="transition-colors hover:text-sky-400">
+            +251 979 745 762
+          </a>
+        </div>
       </div>
     </footer>
   );

@@ -1,46 +1,40 @@
-import React from 'react';
 import educationData from "./educationData.js";
+import SectionHeader from "./SectionHeader";
 
 function Education() {
   return (
-    <div className="w-full flex justify-center py-6">
-      <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[70%] xl:w-[60%] 2xl:w-[50%] bg-gradient-to-r from-blue-50 to-blue-200 p-6 rounded-lg shadow-lg">
-        {/* Title */}
-        <div className="text-[24px] font-semibold text-center text-gray-800 mb-6">
-          <h1 id="education" key="education">Educational Background</h1>
+    <section className="section-shell bg-slate-50">
+      <div className="section-inner max-w-3xl">
+        <div id="education">
+          <SectionHeader
+            label="Education"
+            title="Academic Background"
+            subtitle="Formal training and continuous learning"
+          />
         </div>
 
-        {/* Education List */}
-        <div>
-          {educationData.map((item, index) => {
-            return (
-              <div key={index} className="mb-6">
-                {/* Date Container */}
-                <div className="border-2 border-blue-400 w-fit px-[12px] py-[4px] rounded-full text-[14px] font-medium text-blue-700 mx-auto mb-4">
-                  <p>{item.date}</p>
-                </div>
+        <div className="relative space-y-0">
+          <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-rose-300 via-sky-300 to-transparent sm:left-6" />
 
-                {/* Education Card */}
-                <div className="pl-[30px]">
-                  <div className="border-l-4 border-blue-500 p-6 bg-white shadow-md rounded-lg">
-                    {/* Title */}
-                    <div className="font-semibold text-[18px] text-gray-900 mb-2">
-                      <h1 className="hover:underline hover:text-blue-700">
-                        <a href={item.link}>{item.title}</a>
-                      </h1>
-                    </div>
-                    {/* Description */}
-                    <div className="text-[15px] text-gray-700">
-                      <p>{item.about}</p>
-                    </div>
-                  </div>
-                </div>
+          {educationData.map((item, index) => (
+            <article key={index} className="relative pl-10 sm:pl-14 pb-8 last:pb-0">
+              <div className="absolute left-2.5 top-1.5 h-3 w-3 rounded-full border-2 border-white bg-rose-500 shadow sm:left-4.5" />
+              <span className="inline-block rounded-full bg-white px-3 py-1 text-xs font-semibold text-rose-600 border border-rose-100 shadow-sm mb-3">
+                {item.date}
+              </span>
+              <div className="card-modern p-5">
+                <h3 className="text-lg font-bold text-slate-900 hover:text-rose-500 transition-colors">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    {item.title}
+                  </a>
+                </h3>
+                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{item.about}</p>
               </div>
-            );
-          })}
+            </article>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

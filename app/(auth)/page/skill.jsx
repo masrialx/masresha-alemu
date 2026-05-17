@@ -1,5 +1,7 @@
 "use client";
 
+import SectionHeader from "./SectionHeader";
+
 const SKILL_GROUPS = [
   {
     title: "Languages",
@@ -29,28 +31,24 @@ const SKILL_GROUPS = [
 
 export default function SkillList() {
   return (
-    <section id="skills" className="w-full bg-white py-8 sm:py-10 px-4">
-      <div className="mx-auto max-w-3xl">
-        <header className="text-center mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Skills</h2>
-          <p className="mt-1 text-sm sm:text-base text-gray-500">
-            Full stack development with modern AI agent tooling
-          </p>
-        </header>
+    <section id="skills" className="section-shell bg-slate-50">
+      <div className="section-inner max-w-4xl">
+        <SectionHeader
+          label="Expertise"
+          title="Skills"
+          subtitle="Full stack development with modern AI agent tooling"
+        />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {SKILL_GROUPS.map((group) => (
-            <article
-              key={group.title}
-              className="rounded-xl border border-gray-200 bg-gray-50/80 px-3 py-3 sm:px-4 sm:py-3.5"
-            >
-              <h3 className="text-xs sm:text-sm font-semibold uppercase tracking-wide text-red-600 mb-2">
+            <article key={group.title} className="card-modern p-4 sm:p-5">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-rose-500 mb-3">
                 {group.title}
               </h3>
-              <ul className="flex flex-wrap gap-1.5 sm:gap-2">
+              <ul className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <li key={item}>
-                    <span className="inline-block rounded-md bg-white px-2 py-1 text-xs sm:text-sm text-gray-800 border border-gray-200 shadow-sm">
+                    <span className="inline-block rounded-lg bg-slate-50 px-2.5 py-1 text-xs sm:text-sm text-slate-700 border border-slate-100">
                       {item}
                     </span>
                   </li>
