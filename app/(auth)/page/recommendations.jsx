@@ -1,6 +1,9 @@
 "use client";
 
+import { FaLinkedin } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
+
+const LINKEDIN_URL = "https://www.linkedin.com/in/masresha-a-851241232/";
 
 export default function Recommendations() {
   return (
@@ -42,9 +45,17 @@ export default function Recommendations() {
                 to any team.
               </blockquote>
 
-              <div className="mt-5 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium">Verified</span>
-                <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium">LinkedIn Endorsed</span>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#0A66C2] px-4 py-2 text-xs font-bold text-white transition-colors hover:bg-[#004182]"
+                >
+                  <FaLinkedin size={14} />
+                  More on LinkedIn
+                </a>
               </div>
             </div>
           </div>

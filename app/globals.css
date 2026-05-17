@@ -111,3 +111,26 @@ body {
 .marquee-mask {
   mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
 }
+
+/* 3D coding scene (hero) */
+.scene-3d-wrap {
+  perspective: 1100px;
+  perspective-origin: 50% 40%;
+}
+
+.scene-3d-stage {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.scene-desk,
+.scene-dev,
+.scene-particle {
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 640px) {
+  .scene-3d-wrap {
+    perspective: 900px;
+  }
+}

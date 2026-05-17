@@ -1,49 +1,25 @@
 "use client";
 
 import { useState } from "react";
+import { FaLinkedin } from "react-icons/fa";
 import SectionHeader from "./SectionHeader";
 
 const HIGHLIGHT = "font-semibold text-rose-500";
+const LINKEDIN_URL = "https://www.linkedin.com/in/masresha-a-851241232/";
+const RESUME_PDF = "/Masresha_alemu-update-resume-ATS-I.pdf";
+const RESUME_DOWNLOAD_NAME = "Masresha_Alemu_Resume.pdf";
 
 export default function AboutMe() {
   const [showResumeModal, setShowResumeModal] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [dragging, setDragging] = useState(false);
-  const [startPos, setStartPos] = useState({ x: 0, y: 0 });
 
   const handleResumeClick = () => setShowResumeModal(true);
   const handleCloseModal = () => setShowResumeModal(false);
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/masresha_alemu_adasho.pdf";
-    link.download = "/masresha_alemu_adasho.pdf";
+    link.href = RESUME_PDF;
+    link.download = RESUME_DOWNLOAD_NAME;
     link.click();
   };
-
-  const handleZoomIn = () => setZoomLevel((prev) => prev + 0.2);
-  const handleZoomOut = () => setZoomLevel((prev) => Math.max(1, prev - 0.2));
-
-  const handleMouseDown = (e) => {
-    setDragging(true);
-    setStartPos({ x: e.clientX - position.x, y: e.clientY - position.y });
-  };
-  const handleMouseMove = (e) => {
-    if (!dragging) return;
-    setPosition({ x: e.clientX - startPos.x, y: e.clientY - startPos.y });
-  };
-  const handleMouseUp = () => setDragging(false);
-  const handleTouchStart = (e) => {
-    if (e.touches.length === 1) {
-      setDragging(true);
-      setStartPos({ x: e.touches[0].clientX - position.x, y: e.touches[0].clientY - position.y });
-    }
-  };
-  const handleTouchMove = (e) => {
-    if (!dragging || e.touches.length !== 1) return;
-    setPosition({ x: e.touches[0].clientX - startPos.x, y: e.touches[0].clientY - startPos.y });
-  };
-  const handleTouchEnd = () => setDragging(false);
 
   return (
     <>
@@ -65,20 +41,50 @@ export default function AboutMe() {
                 <span className={HIGHLIGHT}>Full Stack &amp; AI Engineer</span> with experience building scalable{" "}
                 <span className={HIGHLIGHT}>SaaS platforms</span>, <span className={HIGHLIGHT}>AI agents</span> (OpenClaw,
                 MCP, browser automation, UI agents), and <span className={HIGHLIGHT}>LLM-powered automation</span> for
-                international startups — from <span className={HIGHLIGHT}>AlphaMail AI</span> at Agents4Hire to CRM
-                automation at <span className={HIGHLIGHT}>AISyncso</span>, interview systems at{" "}
+                international startups — from <span className={HIGHLIGHT}>AlphaMail AI</span> and{" "}
+                <span className={HIGHLIGHT}>GenAI</span> at Agents4Hire to CRM automation at{" "}
+                <span className={HIGHLIGHT}>AISyncso</span>, interview systems at{" "}
                 <span className={HIGHLIGHT}>Sapien AI</span>, and <span className={HIGHLIGHT}>Kelem Quiz</span> at NileSync.
-                Harvard HSIL Hackathon <span className={HIGHLIGHT}>Ethiopia Hub winner</span> and{" "}
-                <span className={HIGHLIGHT}>Global Top 50 finalist</span>.
+                Harvard HSIL Hackathon — <span className={HIGHLIGHT}>Ethiopia&apos;s #1 winner</span>, representing{" "}
+                <span className={HIGHLIGHT}>Ethiopia on the world stage</span>.
               </p>
 
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 flex items-center justify-center gap-3 rounded-xl border-2 border-[#0A66C2]/30 bg-[#0A66C2]/5 px-4 py-3 text-left transition-all hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:shadow-md lg:justify-start"
+              >
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#0A66C2] text-white shadow-md">
+                  <FaLinkedin size={22} />
+                </span>
+                <span>
+                  <span className="block text-sm font-bold text-[#0A66C2]">
+                    See more on LinkedIn — full experience &amp; recommendations
+                  </span>
+                  <span className="mt-0.5 block text-xs text-slate-500">linkedin.com/in/masresha-a-851241232</span>
+                </span>
+              </a>
+
               <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
-                <a href="#contact" className="btn-accent">
-                  Connect
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-accent inline-flex items-center justify-center gap-2"
+                >
+                  <FaLinkedin size={18} />
+                  LinkedIn Profile
+                </a>
+                <a href="#contact" className="btn-outline">
+                  Contact
                 </a>
                 <button onClick={handleResumeClick} className="btn-outline">
                   View Resume
                 </button>
+                <a href={RESUME_PDF} download={RESUME_DOWNLOAD_NAME} className="btn-outline">
+                  Download Resume
+                </a>
               </div>
             </div>
           </div>
@@ -87,46 +93,27 @@ export default function AboutMe() {
 
       {showResumeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-navy/70 p-4 backdrop-blur-sm">
-          <div className="card-modern relative flex h-[85vh] w-full max-w-4xl flex-col p-4">
-            <button
-              onClick={handleCloseModal}
-              className="absolute right-4 top-4 z-10 rounded-lg bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700 hover:bg-slate-200"
-            >
-              Close
-            </button>
-
-            <div
-              className="flex flex-1 items-center justify-center overflow-hidden"
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={handleMouseUp}
-              onMouseLeave={handleMouseUp}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              style={{ cursor: dragging ? "grabbing" : "grab" }}
-            >
-              <img
-                src="/masresha_alemu_adasho.png"
-                alt="Resume"
-                className="max-h-full max-w-full object-contain"
-                style={{ transform: `scale(${zoomLevel}) translate(${position.x}px, ${position.y}px)` }}
-              />
-            </div>
-
-            <div className="mt-4 flex items-center justify-between gap-4 border-t border-slate-100 pt-4">
-              <div className="flex gap-2">
-                <button onClick={handleZoomOut} className="btn-outline px-4 py-2">
-                  −
+          <div className="card-modern relative flex h-[90vh] w-full max-w-4xl flex-col p-4">
+            <div className="mb-3 flex items-center justify-between gap-3 border-b border-slate-100 pb-3">
+              <h3 className="text-lg font-semibold text-slate-900">Resume</h3>
+              <div className="flex items-center gap-2">
+                <button onClick={handleDownloadResume} className="btn-primary px-4 py-2 text-sm">
+                  Download PDF
                 </button>
-                <button onClick={handleZoomIn} className="btn-outline px-4 py-2">
-                  +
+                <button
+                  onClick={handleCloseModal}
+                  className="rounded-lg bg-slate-100 px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-200"
+                >
+                  Close
                 </button>
               </div>
-              <button onClick={handleDownloadResume} className="btn-primary">
-                Download PDF
-              </button>
             </div>
+
+            <iframe
+              src={`${RESUME_PDF}#toolbar=1&navpanes=0`}
+              title="Masresha Alemu Resume"
+              className="min-h-0 flex-1 w-full rounded-lg border border-slate-200 bg-white"
+            />
           </div>
         </div>
       )}

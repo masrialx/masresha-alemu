@@ -93,9 +93,9 @@ const updatedProjectsData = [
         type: "Contract · Remote",
       },
       {
-        projectName: "Harvard Health Innovation Hackathon (HSIL) — Team Winner",
+        projectName: "Harvard Health Innovation Hackathon (HSIL) — Ethiopia #1 Winner",
         aboutProject:
-          "Built an AI-powered health system for early disease prevention and virus detection (including COVID-19 and similar infectious diseases). Won Ethiopia Hub regional competition, represented Ethiopia globally, and advanced to Top 50 teams worldwide out of 3,000+ ideas. Developed intelligent health monitoring concepts using data-driven prediction and detection systems.",
+          "Built an AI-powered health system for early disease prevention and virus detection. Won the Ethiopia Hub as the #1 team, represented Ethiopia on the world stage at Harvard HSIL, and competed globally among 3,000+ ideas.",
         sourceCode: "",
         btns: {
           live: "https://hsph.harvard.edu/research/health-systems-innovation-lab/work/hsil-hackathon-2026-building-high-value-health-systems-leveraging-ai/",
@@ -104,7 +104,7 @@ const updatedProjectsData = [
           img: "/hsil-hackathon.png",
         },
         time: "2026",
-        location: "Ethiopia Hub · Global Top 50",
+        location: "Ethiopia · Represented globally",
         type: "Hackathon · Achievement",
       },
     ],

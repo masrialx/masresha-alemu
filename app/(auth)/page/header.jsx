@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Typewriter from "typewriter-effect";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import {
   FaHome,
   FaUser,
@@ -16,6 +17,15 @@ import {
   FaGraduationCap,
   FaStar,
 } from "react-icons/fa";
+
+const CodingScene3D = dynamic(() => import("./CodingScene3D"), {
+  ssr: false,
+  loading: () => (
+    <div className="mx-auto flex h-[280px] w-full max-w-md items-center justify-center sm:h-[340px] lg:h-[420px]">
+      <div className="h-12 w-12 animate-pulse rounded-2xl bg-white/10" />
+    </div>
+  ),
+});
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -101,62 +111,85 @@ export default function Header() {
 
       <section
         id="home"
-        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-brand-dark pt-20"
+        className="relative flex min-h-screen items-center overflow-hidden bg-brand-dark pt-20"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
           style={{ backgroundImage: "url('/bg1.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/95 via-brand-navy/80 to-brand-dark" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-navy/98 via-brand-navy/90 to-brand-dark" />
         <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-rose-500/20 blur-3xl animate-blob" />
         <div className="pointer-events-none absolute -right-32 bottom-20 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl animate-blob animation-delay-2000" />
 
-        <motion.div
-          className="relative z-10 mx-auto max-w-3xl px-4 text-center"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-sky-400">
-            Portfolio
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl">
-            Masresha <span className="gradient-text">Alemu</span>
-          </h1>
-          <p className="mt-4 text-lg font-medium text-slate-300 sm:text-xl">
-            Full Stack &amp; AI Engineer
-          </p>
-          <div className="mt-3 text-lg text-slate-400 sm:text-xl">
-            <Typewriter
-              options={{
-                strings: [
-                  "AI Agents & MCP",
-                  "LLM Automation",
-                  "SaaS Platforms",
-                  "OpenClaw & Browser Agents",
-                ],
-                autoStart: true,
-                loop: true,
-              }}
-            />
-          </div>
+        {/* Grid overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.8) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
 
-          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <button onClick={() => handleScroll("projects")} className="btn-accent w-full sm:w-auto">
-              View Experience
-            </button>
-            <button
-              onClick={() => handleScroll("contact")}
-              className="btn-outline w-full border-white/20 bg-white/5 text-white hover:border-sky-400 hover:text-sky-300 sm:w-auto"
-            >
-              Get in Touch
-            </button>
-          </div>
-        </motion.div>
+        <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center gap-10 px-4 py-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:py-16">
+          {/* Text */}
+          <motion.div
+            className="flex-1 text-center lg:text-left"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <p className="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-sky-400">
+              Full Stack &amp; AI Engineer
+            </p>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Masresha <span className="gradient-text">Alemu</span>
+            </h1>
+            <p className="mt-4 text-lg text-slate-300 sm:text-xl">
+              Building SaaS, AI agents &amp; automation for global teams
+            </p>
+            <div className="mt-3 text-base text-slate-400 sm:text-lg">
+              <Typewriter
+                options={{
+                  strings: [
+                    "AI Agents & MCP",
+                    "LLM Automation",
+                    "SaaS Platforms",
+                    "OpenClaw & Browser Agents",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
+            </div>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+              <button onClick={() => handleScroll("projects")} className="btn-accent w-full sm:w-auto">
+                View Experience
+              </button>
+              <button
+                onClick={() => handleScroll("contact")}
+                className="btn-outline w-full border-white/20 bg-white/5 text-white hover:border-sky-400 hover:text-sky-300 sm:w-auto"
+              >
+                Get in Touch
+              </button>
+            </div>
+          </motion.div>
+
+          {/* 3D coding scene */}
+          <motion.div
+            className="w-full flex-1 lg:max-w-xl"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.15 }}
+          >
+            <CodingScene3D />
+          </motion.div>
+        </div>
 
         <button
           onClick={() => handleScroll("about")}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-400 transition-colors hover:text-white"
+          className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2 text-slate-400 transition-colors hover:text-white lg:bottom-8"
           aria-label="Scroll to about"
         >
           <span className="block h-8 w-5 rounded-full border-2 border-slate-500">

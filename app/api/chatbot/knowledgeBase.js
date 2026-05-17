@@ -111,9 +111,9 @@ export const knowledgeBase = {
   achievements: [
     {
       event: "Harvard Health Innovation Hackathon (HSIL) 2026",
-      awards: ["Team Winner", "Ethiopia Hub Winner", "Global Top 50 Finalist"],
+      awards: ["Ethiopia Hub #1 Winner", "Represented Ethiopia globally"],
       description:
-        "AI health system for early disease prevention and virus detection. Top 50 globally out of 3,000+ ideas.",
+        "AI health system for early disease prevention and virus detection. Ethiopia's #1 winner at Harvard HSIL, representing Ethiopia on the world stage.",
     },
   ],
   projects: [
